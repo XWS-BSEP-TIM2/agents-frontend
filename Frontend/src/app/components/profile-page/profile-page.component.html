@@ -1,0 +1,83 @@
+<div class="columns">
+  <div class="column">
+    <mat-spinner color="accent" *ngIf="userProfile.name == ''"></mat-spinner>
+    <div class="stretch-width box" *ngIf="userProfile.name != ''">
+      <div class="cover-image"></div>
+      <div class="profile-photo" *ngIf="userProfile.name != ''">
+        <profile-picture
+          [activeUser]="true"
+          [size]="120"
+          *ngIf="myProfileFunc()"
+        ></profile-picture>
+
+        <profile-picture
+          [user]="userProfile"
+          [size]="120"
+          *ngIf="!myProfileFunc()"
+        ></profile-picture>
+      </div>
+
+      <div class="mt-5 is-flex is-flex-direction-row">
+        <div class="stretch-width">
+          <h1>
+            <span class="clickable" (click)="redirectFeed()">
+              {{ userProfile.name }} {{ userProfile.surname }}
+            </span>
+          </h1>
+          <h2>{{ userPosition.name }} | @{{ userProfile.username }}</h2>
+        </div>
+        <div
+          class="is-flex is-flex-direction-column is-justify-content-flex-start is-align-items-end"
+        >
+          <div
+            class="is-flex is-flex-direction-row is-justify-content-flex-start is-align-items-end"
+          >
+            <div
+              class="tag is-primary is-medium connections-tag clickable m-1"
+              (click)="redirectConnections()"
+            >
+              <span *ngIf="connectionNumber == 1"> 1 connection </span>
+              <span *ngIf="connectionNumber != 1">
+                {{ connectionNumber }} connections
+              </span>
+            </div>
+            <div
+              *ngIf="myProfileFunc()"
+              class="tag is-primary is-medium connections-tag clickable m-1"
+              (click)="redirectRequests()"
+            >
+              Requests
+            </div>
+            <div
+              *ngIf="myProfileFunc()"
+              class="tag is-primary is-medium connections-tag clickable m-1"
+              (click)="redirectBlocks()"
+            >
+              Blocks
+            </div>
+          </div>
+
+          <div *ngIf="!myProfileFunc()">
+            <connect-panel
+              [userIDa]="loginResponse.userID"
+              [userIDb]="targetUserID"
+            ></connect-panel>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="column is-4 side-column">
+    <h2>People you might know</h2>
+    <mat-divider class="mb-5"></mat-divider>
+    <suggested-connections></suggested-connections>
+
+    <h2 class="mt-5 pt-5">Jobs for you</h2>
+    <mat-divider class="mb-5"></mat-divider>
+    <suggested-job-offers></suggested-job-offers>
+  </div>
+</div>

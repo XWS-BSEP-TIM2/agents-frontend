@@ -1,0 +1,123 @@
+@use "~@angular/material" as mat;
+@import "bulma/css/bulma.css";
+@import "/src/custom-theme.scss";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+/* Colors */
+.light-background {
+  background-color: #f0eff5;
+}
+
+.gradient-background {
+  background: linear-gradient(#5c6bc0, #8e99f3);
+}
+
+.shadow {
+  box-shadow: 5px 5px 10px #00000050;
+}
+
+.is-primary {
+  background-color: mat.get-color-from-palette(
+    $dislinkt-application-accent,
+    "default"
+  ) !important;
+}
+
+.shadow-hover {
+  transition: all 0.2s;
+  &:hover {
+    box-shadow: 2px 2px 5px #00000030 !important;
+  }
+}
+
+/* Fonts, Text */
+
+.is-light {
+  color: #fff;
+}
+
+/* Layout */
+.centered-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.stretch-width {
+  width: 100%;
+}
+
+.stretch-height {
+  height: 100%;
+}
+
+.stretch-min-height {
+  min-height: 100%;
+}
+
+.tag {
+  margin-right: 5px;
+}
+
+/* Max width */
+.max-width-500 {
+  max-width: 500px;
+}
+
+.max-width-600 {
+  max-width: 600px;
+}
+
+.max-width-700 {
+  max-width: 700px;
+}
+
+.max-width-800 {
+  max-width: 800px;
+}
+
+.max-width-900 {
+  max-width: 900px;
+}
+
+.max-width-1200 {
+  max-width: 1200px;
+}
+
+/* Border */
+.container {
+  border-radius: 10px;
+}
+
+/* Aditional */
+.clickable {
+  cursor: pointer;
+}
+
+.auto-margin {
+  margin: auto;
+}
+
+mat-spinner {
+  margin: 50px auto;
+}
+
+/* Hide scroll bar*/
+.main-container::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Hide scrollbar for IE and Edge */
+.main-container {
+  -ms-overflow-style: none !important;
+}

@@ -1,0 +1,51 @@
+<mat-card class="post-container">
+  <mat-card-header>
+    <div mat-card-avatar>
+      <ngx-avatar name="Freud Cat" size="40"></ngx-avatar>
+    </div>
+    <mat-card-title class="clickable" (click)="redirectAuthorProfile()"
+      >Freud the Cat</mat-card-title
+    >
+    <mat-card-subtitle class="clickable" (click)="redirectPostPage()"
+      >18/06/2022, 10:39 AM</mat-card-subtitle
+    >
+  </mat-card-header>
+  <div class="image-container clickable" (click)="redirectPostPage()">
+    <img src="assets/maca.png" />
+  </div>
+  <mat-card-content class="mt-4">
+    <p>
+      Sigmund Freudborn, Sigismund Schlomo Freud; 6 May 1856-23 September 1939
+      was an Austrian neurologist and the founder of psychoanalysis, a clinical
+      method for evaluating and treating pathologies in the psyche through
+      dialogue between a patient and a psychoanalyst.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <div
+      class="is-flex is-flex-direction-row is-justify-content-space-between is-align-items-center"
+    >
+      <div>
+        <button mat-icon-button matTooltip="Like">
+          <mat-icon>thumb_up</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Dislike">
+          <mat-icon>thumb_down</mat-icon>
+        </button>
+
+        <button
+          mat-icon-button
+          matTooltip="Comments"
+          (click)="redirectPostPage()"
+        >
+          <mat-icon>comment</mat-icon>
+        </button>
+      </div>
+
+      <div class="mr-5">
+        <strong>90</strong> likes<span class="vertical-separator">|</span>
+        <strong>14</strong> comments
+      </div>
+    </div>
+  </mat-card-actions>
+</mat-card>
