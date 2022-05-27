@@ -24,21 +24,23 @@ export class LoginPageComponent implements OnInit {
     } else {
       this.errorMessage = '';
       this.loginService.login(this.loginRequest).subscribe(
-        (data) => {
-          if (data.error == undefined || data.error === '')
-            this.successfulLogin(data);
-          else {
-            this.errorMessage = data.error;
+        (response) => {
+          console.log(response);
+          if (response != undefined) {
+            this.successfulLogin(response);
+          } else {
+            this.errorMessage = 'Email or password are wrong.';
           }
         },
-        (res) => (this.errorMessage = 'Invalid email or password.')
+        (error) => {
+          this.errorMessage = 'Email or password are wrong.';
+        }
       );
     }
   }
 
-  successfulLogin(loginRespons: LoginResponse) {
+  successfulLogin(loginResponse: LoginResponse) {
     this.errorMessage = '';
-    //console.log(loginRespons);
-    this.loginService.loginSetUser(loginRespons);
+    this.loginService.loginSetUser(loginResponse);
   }
 }

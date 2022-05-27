@@ -22,10 +22,10 @@
                   <div class="column is-2"></div>
                   <div class="column is-8">
                     <div class="field">
-                      <label class="label">Username</label>
+                      <label class="label">Email</label>
                       <div class="control">
                         <input
-                          [(ngModel)]="loginRequest.username"
+                          [(ngModel)]="loginRequest.email"
                           class="input"
                           type="text"
                           placeholder="Your username"
@@ -46,8 +46,8 @@
                         />
                       </div>
                     </div>
+                    <p class="danger">{{ errorMessage }}</p>
                   </div>
-                  <div class="column is-2"></div>
                 </div>
 
                 <div class="row">

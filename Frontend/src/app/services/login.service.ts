@@ -9,7 +9,7 @@ import { server } from '../app-global';
   providedIn: 'root',
 })
 export class LoginService {
-  url = server+'login'; //TODO: na jednom mestu
+  url = server + 'login';
 
   constructor(private _http: HttpClient, private route: Router) {}
 
@@ -18,7 +18,6 @@ export class LoginService {
   }
 
   loginSetUser(loginResponse: LoginResponse) {
-    loginResponse.fullName = '';
     localStorage.setItem('currentUser', JSON.stringify(loginResponse));
     window.location.href = '/';
   }
@@ -30,11 +29,11 @@ export class LoginService {
   }
 
   getCurrentUser(): LoginResponse {
-    let currentUser = localStorage.getItem('currentUser')
+    let currentUser = localStorage.getItem('currentUser');
     if (currentUser != null) {
-      return JSON.parse(localStorage.getItem('currentUser')!);  
+      return JSON.parse(localStorage.getItem('currentUser')!);
     } else {
-      return new LoginResponse();  
+      return new LoginResponse();
     }
   }
 
@@ -55,10 +54,7 @@ export class LoginService {
     return headers;
   }
 
-  getCurrentUserRole(){
-    return this.getCurrentUser().role
+  getCurrentUserRole() {
+    return this.getCurrentUser().role;
   }
-
 }
-
-

@@ -1,11 +1,11 @@
 export class LoginRequest {
     constructor(
-        public username: string = '',
+        public email: string = '',
         public password: string = '',
     ) { }
 
     validateProperty(): boolean {
-        return this.username !== '' && this.password !== ''
+        return this.email !== '' && this.password !== ''
     }
 
 }
