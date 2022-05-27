@@ -26,10 +26,6 @@ export class HeaderComponent implements OnInit {
     this.loginService.logout();
   }
 
-  redirectSettings() {
-    this.router.navigate(['edit-profile']);
-  }
-
   redirectMyProfile() {
     window.location.href = '/user/' + this.loginUser.id;
   }

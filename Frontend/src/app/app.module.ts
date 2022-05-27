@@ -13,13 +13,11 @@ import { AvatarModule } from 'ngx-avatar';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './components/dashboard/sidebar/sidebar.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
-import { EditProfilePageComponent } from './components/edit-profile-page/edit-profile-page.component';
 import { PostDisplayComponent } from './components/post-display/post-display.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { HeaderComponent } from './components/dashboard/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SingleNotificationComponent } from './components/dashboard/single-notification/single-notification.component';
 import { NewPostDialogComponent } from './components/new-post-dialog/new-post-dialog.component';
 import { PostPageComponentComponent } from './components/post-page-component/post-page-component.component';
 import { DetailedPostDisplayComponent } from './components/post-page-component/detailed-post-display/detailed-post-display.component';
@@ -29,6 +27,7 @@ import { PhotoLightBoxComponent } from './components/post-page-component/photo-l
 import { ProfilePictureComponent } from './components/profile-picture/profile-picture.component';
 import { CompanyPictureComponent } from './components/company-picture/company-picture.component';
 import { NotAuthorizedComponent } from './components/not-authorized/not-authorized.component';
+import { SidebarRightComponent } from './components/sidebar-right/sidebar-right.component';
 
 @NgModule({
   declarations: [
@@ -39,12 +38,10 @@ import { NotAuthorizedComponent } from './components/not-authorized/not-authoriz
     DashboardComponent,
     SidebarComponent,
     ProfilePageComponent,
-    EditProfilePageComponent,
     PostDisplayComponent,
     AdminDashboardComponent,
     FeedComponent,
     HeaderComponent,
-    SingleNotificationComponent,
     NewPostDialogComponent,
     PostPageComponentComponent,
     DetailedPostDisplayComponent,
@@ -54,6 +51,7 @@ import { NotAuthorizedComponent } from './components/not-authorized/not-authoriz
     ProfilePictureComponent,
     CompanyPictureComponent,
     NotAuthorizedComponent,
+    SidebarRightComponent
   ],
   imports: [
     BrowserModule,

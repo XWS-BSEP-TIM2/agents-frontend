@@ -1,9 +1,9 @@
 <div class="columns">
   <div class="column">
-    <mat-spinner color="accent" *ngIf="userProfile.name == ''"></mat-spinner>
-    <div class="stretch-width box" *ngIf="userProfile.name != ''">
+    <mat-spinner color="accent" *ngIf="user.name == ''"></mat-spinner>
+    <div class="stretch-width box" *ngIf="user.name != ''">
       <div class="cover-image"></div>
-      <div class="profile-photo" *ngIf="userProfile.name != ''">
+      <div class="profile-photo" *ngIf="user.name != ''">
         <profile-picture
           [activeUser]="true"
           [size]="120"
@@ -11,7 +11,7 @@
         ></profile-picture>
 
         <profile-picture
-          [user]="userProfile"
+          [user]="user"
           [size]="120"
           *ngIf="!myProfileFunc()"
         ></profile-picture>
@@ -20,26 +20,29 @@
       <div class="mt-5 is-flex is-flex-direction-row">
         <div class="stretch-width">
           <h1>
-            <span class="clickable" (click)="redirectFeed()">
-              {{ userProfile.name }} {{ userProfile.surname }}
-            </span>
+            <span class="clickable"> {{ user.name }} {{ user.surname }} </span>
           </h1>
         </div>
         <div
           class="is-flex is-flex-direction-column is-justify-content-flex-start is-align-items-end"
-        ></div>
+        >
+          <mat-chip-list>
+            <mat-chip selected>{{ user.role }}</mat-chip>
+          </mat-chip-list>
+        </div>
       </div>
     </div>
-
-    <div>
-      <router-outlet></router-outlet>
+    <div
+      *ngIf="myProfileFunc() && user.role == 'USER'"
+      class="content is-medium is-flex is-flex-direction-column is-align-items-center"
+    >
+      <p>You are not a company owner yet.</p>
+      <div>
+        <button mat-raised-button color="accent" (click)="registerCompanyForm()">Register your company</button>
+      </div>
     </div>
   </div>
   <div class="column is-4 side-column">
-    <h2>People you might know</h2>
-    <mat-divider class="mb-5"></mat-divider>
-
-    <h2 class="mt-5 pt-5">Jobs for you</h2>
-    <mat-divider class="mb-5"></mat-divider>
+    <sidebar-right></sidebar-right>
   </div>
 </div>

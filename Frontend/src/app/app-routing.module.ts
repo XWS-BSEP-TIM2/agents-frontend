@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { EditProfilePageComponent } from './components/edit-profile-page/edit-profile-page.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
@@ -27,7 +26,6 @@ const routes: Routes = [
         path: 'user/:id',
         component: ProfilePageComponent,
       },
-      { path: 'edit-profile', component: EditProfilePageComponent },
     ],
 
     canActivate: [AuthGuard],

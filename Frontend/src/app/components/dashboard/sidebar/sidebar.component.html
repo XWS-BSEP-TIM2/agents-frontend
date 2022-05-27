@@ -22,27 +22,23 @@
           <mat-icon>home</mat-icon>Feed
         </div></mat-button-toggle
       >
-      <mat-button-toggle value="user/{{ loginUser.id }}"
+      <mat-button-toggle
+        value="user/{{ loginUser.id }}"
+        [disabled]="loginUser.role == 'ADMIN'"
         ><div class="label-container">
           <mat-icon>person</mat-icon>My Company
         </div></mat-button-toggle
       >
       <mat-button-toggle
         value="job-offers"
-        [disabled]="currentPage == 'job-offers'"
+        [disabled]="
+          currentPage == 'job-offers' || loginUser.role != 'COMPANY_OWNER'
+        "
         ><div class="label-container">
           <mat-icon>business_center</mat-icon>My Job offers
         </div></mat-button-toggle
       >
-      <mat-button-toggle
-        value="edit-profile"
-        [disabled]="currentPage == 'edit-profile'"
-        ><div class="label-container">
-          <mat-icon>settings</mat-icon>Settings
-        </div></mat-button-toggle
-      >
-
-      <mat-button-toggle value="admin"
+      <mat-button-toggle value="admin" *ngIf="loginUser.role == 'ADMIN'"
         ><div class="label-container">
           <mat-icon>feedback</mat-icon>Admin Dashboard
         </div></mat-button-toggle
