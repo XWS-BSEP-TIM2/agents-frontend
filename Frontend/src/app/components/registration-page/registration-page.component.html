@@ -8,7 +8,9 @@
         <mat-card>
           <div class="columns is-flex">
             <div class="column is-6 blobwallpaper">
-              <div class="rows">
+              <div
+                class="rows is-flex is-flex-direction-column is-justify-content-center stretch-height"
+              >
                 <div class="row is-flex is-justify-content-center">
                   <img
                     src="assets/Dislinkt-white-logo-transparent.png"
@@ -18,16 +20,15 @@
                 <div class="row">
                   <br />
                   <h1 class="has-text-centered" style="color: white">
-                    Dislinkt
+                    Dislinkt Agents
                   </h1>
                   <br />
 
                   <p class="has-text-centered dislinkt-description">
-                    Dislinkt is the world's largest professional network on the
-                    internet. You can use Dislinkt to find the right job or
-                    internship, connect and strengthen professional
-                    relationships, and learn the skills you need to succeed in
-                    your career.
+                    Dislinkt Agents is the best place to search for job offers,
+                    or promote Your company on a well developed, trustworthy
+                    network. With a wide user range, we guarantee to provide you
+                    with the career option of your dreams!
                   </p>
                 </div>
               </div>
@@ -70,18 +71,6 @@
                     </div>
 
                     <div class="field">
-                      <label class="label">Username</label>
-                      <div class="control">
-                        <input
-                          class="input"
-                          [(ngModel)]="registrationModel.username"
-                          type="text"
-                          placeholder="Your unique username"
-                        />
-                      </div>
-                    </div>
-
-                    <div class="field">
                       <label class="label">Email</label>
                       <div class="control">
                         <input
@@ -92,54 +81,6 @@
                         />
                       </div>
                     </div>
-
-                    <div class="field">
-                      <label class="label">Phone number</label>
-                      <div class="control">
-                        <input
-                          class="input"
-                          [(ngModel)]="registrationModel.phoneNumber"
-                          type="text"
-                          placeholder="Your phone number"
-                        />
-                      </div>
-                    </div>
-
-                    <div class="field" style="width: 50%">
-                      <label class="label">Birthday</label>
-                      <div class="control">
-                        <input
-                          class="input"
-                          [(ngModel)]="registrationModel.birthday"
-                          type="date"
-                        />
-                      </div>
-                    </div>
-
-                    <div class="field">
-                      <div class="control">
-                        <label class="label">Gender</label>
-                        <label class="radio">
-                          <input
-                            type="radio"
-                            (click)="registrationModel.gender = 'Male'"
-                            name="question"
-                          />
-                          male
-                        </label>
-                        <br />
-                        <label class="radio">
-                          <input
-                            type="radio"
-                            (click)="registrationModel.gender = 'Female'"
-                            name="question"
-                          />
-                          female
-                        </label>
-                      </div>
-                    </div>
-                    <br />
-                    <br />
 
                     <div class="field">
                       <label class="label">Password</label>
@@ -192,18 +133,6 @@
                         >
                           Password did not match
                         </p>
-                      </div>
-                    </div>
-
-                    <div class="field">
-                      <div class="control">
-                        <label class="checkbox">
-                          <input
-                            type="checkbox"
-                            [(ngModel)]="registrationModel.isPrivate"
-                          />
-                          Private dislinkt account
-                        </label>
                       </div>
                     </div>
                   </div>
