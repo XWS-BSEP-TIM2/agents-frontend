@@ -17,22 +17,27 @@ export class RegistrationPageComponent implements OnInit {
   }
 
   register() {
-    if (!this.registrationModel.validateProperty()) {
-      return;
+    if (
+      !this.registrationModel.validateProperty() ||
+      this.registrationModel.password != this.passwordMatch ||
+      this.registrationModel.password == '' ||
+      this.registrationModel.name == '' ||
+      this.registrationModel.surname == '' ||
+      this.registrationModel.email == ''
+    ) {
+      alert('An error occured.');
+    } else {
+      this.registerService
+        .register(this.registrationModel)
+        .subscribe((data) => {
+          if (data) {
+            alert('Succesfully signed up! Proceed to login.');
+            this.route.navigate(['login']);
+          } else {
+            alert('This email is already taken.');
+          }
+        });
     }
-
-    this.registerService.register(this.registrationModel).subscribe(
-      (data) => {
-        if (data != null) {
-          this.route.navigate(['login']);
-        } else {
-          this.route.navigate(['error']);
-        }
-      },
-      (error) => {
-        alert(error.error.Message);
-      }
-    );
   }
 
   ngOnInit(): void {}
