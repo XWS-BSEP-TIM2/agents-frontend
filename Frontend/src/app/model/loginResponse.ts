@@ -1,11 +1,9 @@
 export class LoginResponse {
   constructor(
-    public status: number = 0,
-    public error: string = '',
-    public token: string = '',
-    public username: string = '',
+    public jwt: string = '',
+    public id: string = '',
     public role: string = '',
-    public userID: string = '',
+    public email: string = '',
     public fullName: string = ''
   ) {}
 }

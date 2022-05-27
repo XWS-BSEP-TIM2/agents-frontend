@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginRequest } from 'src/app/model/loginRequest';
 import { LoginResponse } from 'src/app/model/loginResponse';
-import { RecoveryRequest } from 'src/app/model/recoveryRequest';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({

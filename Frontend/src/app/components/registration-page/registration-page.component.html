@@ -122,13 +122,15 @@
                       <div class="control">
                         <input
                           class="input"
-                          [(ngModel)]="registrationModel.confirmPassword"
+                          [(ngModel)]="passwordMatch"
                           type="password"
                           placeholder="Confirm password"
-                          [class.is-danger]="!registrationModel.passwordMatch()"
+                          [class.is-danger]="
+                            !(registrationModel.password == passwordMatch)
+                          "
                         />
                         <p
-                          *ngIf="!registrationModel.passwordMatch()"
+                          *ngIf="!(registrationModel.password == passwordMatch)"
                           class="has-text-danger"
                         >
                           Password did not match

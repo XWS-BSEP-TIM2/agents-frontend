@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginResponse } from 'src/app/model/loginResponse';
-import { Profile } from 'src/app/model/profileModel';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -32,6 +31,6 @@ export class HeaderComponent implements OnInit {
   }
 
   redirectMyProfile() {
-    window.location.href = '/user/' + this.loginUser.userID;
+    window.location.href = '/user/' + this.loginUser.id;
   }
 }

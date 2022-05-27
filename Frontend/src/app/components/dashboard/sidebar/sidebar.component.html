@@ -22,29 +22,16 @@
           <mat-icon>home</mat-icon>Feed
         </div></mat-button-toggle
       >
-      <mat-button-toggle value="chat" [disabled]="currentPage == 'chat'"
+      <mat-button-toggle value="user/{{ loginUser.id }}"
         ><div class="label-container">
-          <mat-icon>chat_bubble_outline</mat-icon>Chat
-        </div></mat-button-toggle
-      >
-      <mat-button-toggle
-        value="connections"
-        [disabled]="currentPage == 'connections'"
-      >
-        <div class="label-container">
-          <mat-icon>people_outline</mat-icon>Connections
+          <mat-icon>person</mat-icon>My Company
         </div></mat-button-toggle
       >
       <mat-button-toggle
         value="job-offers"
         [disabled]="currentPage == 'job-offers'"
         ><div class="label-container">
-          <mat-icon>business_center</mat-icon>Job offers
-        </div></mat-button-toggle
-      >
-      <mat-button-toggle value="user/{{ loginUser.userID }}"
-        ><div class="label-container">
-          <mat-icon>person</mat-icon>My profile
+          <mat-icon>business_center</mat-icon>My Job offers
         </div></mat-button-toggle
       >
       <mat-button-toggle
@@ -52,6 +39,12 @@
         [disabled]="currentPage == 'edit-profile'"
         ><div class="label-container">
           <mat-icon>settings</mat-icon>Settings
+        </div></mat-button-toggle
+      >
+
+      <mat-button-toggle value="admin"
+        ><div class="label-container">
+          <mat-icon>feedback</mat-icon>Admin Dashboard
         </div></mat-button-toggle
       >
     </mat-button-toggle-group>
@@ -64,7 +57,7 @@
       class="new-post-button shadow-hover"
       (click)="newPost()"
     >
-      <mat-icon class="mr-3">edit</mat-icon>New post
+      <mat-icon class="mr-3">edit</mat-icon>New Job Offer
     </button>
   </div>
 </div>

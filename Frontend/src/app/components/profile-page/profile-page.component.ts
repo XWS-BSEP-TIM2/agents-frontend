@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Experience } from 'src/app/model/experienceModel';
 import { LoginResponse } from 'src/app/model/loginResponse';
-import { Profile } from 'src/app/model/profileModel';
-import { ConnectionService } from 'src/app/services/connection.service';
+import { User } from 'src/app/model/user';
 import { LoginService } from 'src/app/services/login.service';
 import { ProfileService } from 'src/app/services/profile.service';
 
@@ -13,9 +11,7 @@ import { ProfileService } from 'src/app/services/profile.service';
   styleUrls: ['./profile-page.component.scss'],
 })
 export class ProfilePageComponent implements OnInit {
-  userProfile: Profile = new Profile();
-  userPosition: Experience = new Experience();
-  connectionNumber: number = 0;
+  userProfile: User = new User();
   loginResponse!: LoginResponse;
   targetUserID: string = '';
 
@@ -23,7 +19,6 @@ export class ProfilePageComponent implements OnInit {
     private loginService: LoginService,
     private profileService: ProfileService,
     private route: ActivatedRoute,
-    private connectionService: ConnectionService
   ) {}
 
   ngOnInit(): void {
@@ -34,14 +29,6 @@ export class ProfilePageComponent implements OnInit {
 
     this.profileService.getUserById(this.userProfile.id).subscribe((data) => {
       this.userProfile = data.profile;
-      this.userPosition = this.profileService.getCurrentPosition(
-        this.userProfile
-      );
-      //console.log(this.userPosition);
-    });
-
-    this.connectionService.GetFriends(this.userProfile.id).subscribe((data) => {
-      this.connectionNumber = data.length;
     });
   }
 
@@ -49,7 +36,7 @@ export class ProfilePageComponent implements OnInit {
     let urlID = this.userProfile.id;
     //return this.loginService.getCurrentUser().userID === urlID;   //TODO: fix
     //TODO: linija iznad uporedjuje prijavljenog korisnika i id prosledjenog
-    return urlID === this.loginResponse.userID;
+    return urlID === this.loginResponse.id;
   }
 
   redirectConnections() {
