@@ -5,35 +5,16 @@
     </div>
     <!-- style="background-color: red; height: 100px;" -->
     <div class="row">
-      <div class="container">
-        <mat-card>
+      <div class="container max-width-700">
+        <mat-card class="max-width-700">
           <div class="columns is-flex">
             <!-- is-vcentered -->
-            <div class="column is-6 blobwallpaper">
+            <div class="column">
               <div class="rows">
-                <div class="row is-flex is-justify-content-center">
-                  <img src="assets/Dislinkt-white-logo-transparent.png" class="img-dislink-logo" />
-                </div>
-                <div class="row">
-                  <br />
-                  <h1 class="has-text-centered" style="color: white">
-                    Dislinkt
-                  </h1>
-                  <br />
-
-                  <p class="has-text-centered dislinkt-description">
-                    Dislinkt is the world's largest professional network on the
-                    internet. You can use Dislinkt to find the right job or
-                    internship, connect and strengthen professional
-                    relationships, and learn the skills you need to succeed in
-                    your career.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="column is-6">
-              <div class="rows">
-                <h1 class="has-text-centered has-text-weight-bold mt-5" style="color: #6e87d6">
+                <h1
+                  class="has-text-centered has-text-weight-bold mt-5"
+                  style="color: #6e87d6"
+                >
                   Login
                 </h1>
 
@@ -43,90 +24,40 @@
                     <div class="field">
                       <label class="label">Username</label>
                       <div class="control">
-                        <input [(ngModel)]="loginRequest.username" class="input" type="text" placeholder="Your username"
-                          (keyup.enter)="login()" />
+                        <input
+                          [(ngModel)]="loginRequest.username"
+                          class="input"
+                          type="text"
+                          placeholder="Your username"
+                          (keyup.enter)="login()"
+                        />
                       </div>
                     </div>
 
-                    <div *ngIf="!recoveryFormVisible" class="field">
+                    <div class="field">
                       <label class="label">Password</label>
                       <div class="control">
-                        <input [(ngModel)]="loginRequest.password" class="input" type="password"
-                          placeholder="Enter password" (keyup.enter)="login()" />
+                        <input
+                          [(ngModel)]="loginRequest.password"
+                          class="input"
+                          type="password"
+                          placeholder="Enter password"
+                          (keyup.enter)="login()"
+                        />
                       </div>
                     </div>
-
-                    <!-- recovery form -->
-                    <div *ngIf="recoveryFormVisible">
-
-                      <div class="row has-text-centered">
-                        <p class="has-text-success">{{recoveryMsg}}</p>
-                      </div>
-
-                      <div class="field">
-                        <label class="label">Recovery Code</label>
-                        <div class="control">
-                          <input [(ngModel)]="recoveryRequest.recoveryCode" class="input" type="text"
-                            placeholder="Your username" (keyup.enter)="login()" />
-                        </div>
-                      </div>
-
-                      <div class="field">
-                        <label class="label">New Password</label>
-                        <div class="control ">
-                      
-                          <p class="control has-icons-right">
-                            <input class="input" [(ngModel)]="recoveryRequest.newPassword" type="password" placeholder="New password">
-                            <span class="icon is-small is-right">
-                              <mat-icon *ngIf="recoveryRequest.passwordStrength()[1]" style="color: rgba(60, 255, 0, 0.812);">check_circle_outline</mat-icon>    
-                              <mat-icon *ngIf="!recoveryRequest.passwordStrength()[1]" style="color: red;">cancel</mat-icon>
-                            </span>
-                          </p>
-                          <p [ngClass]="recoveryRequest.passwordStrength()[1] ? 'has-text-success' : 'has-text-danger'">{{recoveryRequest.passwordStrength()[0]}}</p>
-                        </div>
-                        </div>
-
-                      <div class="field">
-                        <label class="label">Confirm New Password</label>
-                        <div class="control">
-                          <input [(ngModel)]="recoveryRequest.confirmNewPassword" class="input"
-                            [class.is-danger]="!recoveryRequest.passwordMatch()"
-                            type="password" placeholder="Confirm new password" />
-                            <p *ngIf="!recoveryRequest.passwordMatch()" class="has-text-danger">Password did not match</p>
-                        </div>
-                      </div>
-
-
-                    </div>
-
-
                   </div>
                   <div class="column is-2"></div>
                 </div>
 
-                <div class="row has-text-centered">
-                  <p class="has-text-danger">{{ errorMessage }}</p>
-                  <a *ngIf="showResendVerificationLink()" (click)="resendVerificationLink()">resend verification
-                    link</a>
-                </div>
-
-                <div class="row has-text-centered mt-5">
-                  Forggot password? <a (click)="forggotPassword()">Recover</a>
-                </div>
-
                 <div class="row">
                   <br />
                   <div class="is-flex is-justify-content-center">
-                    <button (click)="login()" class="button is-primary is-rounded">
+                    <button
+                      (click)="login()"
+                      class="button is-primary is-rounded"
+                    >
                       Log in
-                    </button>
-                  </div>
-                </div>
-                <div class="row">
-                  <br />
-                  <div class="is-flex is-justify-content-center">
-                    <button (click)="openModalTab()" class="button is-primary is-rounded">
-                      Passwordless Login
                     </button>
                   </div>
                 </div>
@@ -134,34 +65,11 @@
                 <div class="row has-text-centered mt-5">
                   You do not have an account? <a href="/register">Register</a>
                 </div>
-
-                <div class="row is-flex is-justify-content-center mt-5">
-                  <button [routerLink]="['/welcome']" class="button is-outlined">
-                    Continue as a guest
-                  </button>
-                </div>
               </div>
             </div>
           </div>
         </mat-card>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="modal" id='modal'>
-  <div class="modal-background"></div>
-  <div class="modal-card">
-
-    <section class="modal-card-body">
-      <h2>Enter your mail</h2>
-      <div>
-        <input class="input" type="text" rows="10" [(ngModel)]="mail" />
-      </div>
-    </section>
-    <footer class="modal-card-foot">
-      <button class="button is-success" (click)="sendMagicLinkMail()">Send mail</button>
-
-    </footer>
   </div>
 </div>
