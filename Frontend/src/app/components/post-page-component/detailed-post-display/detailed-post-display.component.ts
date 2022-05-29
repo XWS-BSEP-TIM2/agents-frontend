@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { JobOffer } from 'src/app/model/jobOffer';
 import { PhotoLightBoxComponent } from '../photo-light-box/photo-light-box.component';
 
 @Component({
@@ -8,12 +9,14 @@ import { PhotoLightBoxComponent } from '../photo-light-box/photo-light-box.compo
   styleUrls: ['./detailed-post-display.component.scss'],
 })
 export class DetailedPostDisplayComponent implements OnInit {
+  @Input() jobOffer: JobOffer = new JobOffer();
+
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {}
 
   redirectAuthorProfile() {
-    window.location.href = 'user/1';
+    window.location.href = '/user/' + this.jobOffer.company.user.id;
   }
 
   openImageLightbox() {

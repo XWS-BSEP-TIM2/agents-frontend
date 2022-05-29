@@ -22,7 +22,6 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.user.id = this.route.snapshot.paramMap.get('id')!;
-    console.log(this.user.id);
 
     this.browseService.getUserById(this.user.id).subscribe((data) => {
       this.user = data;

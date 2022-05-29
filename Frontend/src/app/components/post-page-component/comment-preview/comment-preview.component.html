@@ -1,13 +1,27 @@
 <mat-card class="mb-5">
   <div class="is-flex is-flex-direction-row">
-    <ngx-avatar name="Lady Gaga"></ngx-avatar>
+    <profile-picture [user]="comment.user"></profile-picture>
     <div class="is-flex is-flex-direction-column ml-5">
-      <p><strong>Lady Gaga</strong> | 18/06/2022, 10:39 AM</p>
       <p>
-        Etiam nec dui non odio egestas lacinia. Cras finibus tincidunt diam,
-        vitae suscipit diam iaculis ut. Sed ut accumsan metus. Vestibulum cursus
-        elit a sapien tincidunt, non blandit ligula posuere.
+        <strong>{{ comment.user.name }} {{ comment.user.surname }}</strong>
       </p>
+      <p>
+        {{ comment.comment }}
+      </p>
+      <hr />
+      <div class="columns sub-info">
+        <div class="column">
+          <span> <strong>Salary: </strong> ${{ comment.salary | number }} </span>
+        </div>
+        <div class="column rating-column">
+          <span>
+            <strong>Rating: </strong>
+            <span class="rating"
+              >{{ comment.rating }}/5 <mat-icon>star</mat-icon>
+            </span></span
+          >
+        </div>
+      </div>
     </div>
   </div>
 </mat-card>

@@ -1,20 +1,19 @@
 <div class="columns">
   <div class="column">
-    <div class="stretch-width is-flex is-flex-direction-column post-column">
-      <detailed-post-display></detailed-post-display>
-      <write-comment></write-comment>
-      <h2>Comments (14)</h2>
-      <mat-divider class="mb-5"></mat-divider>
-      <comment-preview></comment-preview>
-      <comment-preview></comment-preview>
-      <comment-preview></comment-preview>
-      <comment-preview></comment-preview>
-      <comment-preview></comment-preview>
-      <comment-preview></comment-preview>
-      <comment-preview></comment-preview>
-      <comment-preview></comment-preview>
-      <comment-preview></comment-preview>
-      <comment-preview></comment-preview>
+    <div
+      class="stretch-width is-flex is-flex-direction-column post-column"
+      *ngIf="jobOffer.position != ''"
+    >
+      <detailed-post-display [jobOffer]="jobOffer"></detailed-post-display>
+      <write-comment *ngIf="currentUser.role === 'USER'"></write-comment>
+      <div *ngIf="commentsLoaded">
+        <h2>Comments ({{ comments.length }})</h2>
+        <mat-divider class="mb-5"></mat-divider>
+        <comment-preview
+          *ngFor="let comment of comments"
+          [comment]="comment"
+        ></comment-preview>
+      </div>
     </div>
   </div>
   <div class="column is-4 side-column">

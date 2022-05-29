@@ -9,7 +9,12 @@
   <hr />
   <div class="is-flex is-flex-direction-row is-justify-content-space-between">
     <span
-      ><button mat-icon-button color="warn" matTooltip="Discard comment">
+      ><button
+        mat-icon-button
+        color="warn"
+        matTooltip="Discard comment"
+        (click)="discard()"
+      >
         <mat-icon>cancel</mat-icon>
       </button></span
     >
