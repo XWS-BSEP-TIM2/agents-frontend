@@ -4,6 +4,7 @@ export class ApplicationUser {
     public name: string = '',
     public surname: string = '',
     public email: string = '',
-    public role: string = ''
+    public role: string = '',
+    public apiToken: string = ''
   ) {}
 }
