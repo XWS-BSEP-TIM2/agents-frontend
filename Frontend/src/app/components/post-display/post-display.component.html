@@ -1,5 +1,8 @@
 <div *ngIf="post.type === 'NEW_USER'">
-  <mat-card class="post-container">
+  <mat-card
+    class="post-container clickable"
+    (click)="redirectProfile(post.user.id)"
+  >
     <mat-card-header>
       <div mat-card-avatar>
         <profile-picture [user]="post.user" [size]="40"></profile-picture>
@@ -29,7 +32,10 @@
 </div>
 
 <div *ngIf="post.type === 'NEW_COMPANY'">
-  <mat-card class="post-container">
+  <mat-card
+    class="post-container clickable"
+    (click)="redirectProfile(post.company.user.id)"
+  >
     <mat-card-header>
       <div mat-card-avatar>
         <profile-picture [company]="post.company" [size]="40"></profile-picture>
@@ -58,7 +64,10 @@
 </div>
 
 <div *ngIf="post.type === 'NEW_JOB_OFFER'">
-  <mat-card class="post-container">
+  <mat-card
+    class="post-container clickable"
+    (click)="redirectJobOffer(post.jobOffer.id)"
+  >
     <mat-card-header>
       <div mat-card-avatar>
         <profile-picture

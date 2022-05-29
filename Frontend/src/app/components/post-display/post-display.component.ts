@@ -13,4 +13,12 @@ export class PostDisplayComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.post);
   }
+
+  redirectProfile(id: string) {
+    window.location.href = '/user/' + id;
+  }
+
+  redirectJobOffer(id: string) {
+    window.location.href = '/job-offer/' + id;
+  }
 }

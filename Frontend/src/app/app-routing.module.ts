@@ -5,7 +5,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
-import { PostPageComponentComponent } from './components/post-page-component/post-page-component.component';
+import { PostPageComponentComponent as JobOfferPageComponentComponent } from './components/post-page-component/post-page-component.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
 import { AuthGuard, UnAuthGuard } from './services/auth-guard.service';
@@ -21,7 +21,7 @@ const routes: Routes = [
         path: 'admin',
         component: AdminDashboardComponent,
       },
-      { path: 'post/:id', component: PostPageComponentComponent },
+      { path: 'job-offer/:id', component: JobOfferPageComponentComponent },
       {
         path: 'user/:id',
         component: ProfilePageComponent,
