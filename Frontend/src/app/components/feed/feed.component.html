@@ -1,4 +1,4 @@
-<h1>Hello, {{ loginRespons.fullName }}! 👋</h1>
+<h1>Hello, {{ loginResponse.fullName }}! 👋</h1>
 <div class="columns">
   <div class="column">
     <h2>
@@ -9,7 +9,7 @@
     <div
       class="stretch-width is-flex is-flex-direction-column is-align-items-center my-5"
     >
-      <post-display></post-display>
+      <post-display *ngFor="let post of posts" [post]="post"></post-display>
     </div>
   </div>
   <div class="column is-4 side-column">

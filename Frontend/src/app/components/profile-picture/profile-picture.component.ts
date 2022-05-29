@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ApplicationUser } from 'src/app/model/applicationUser';
+import { Company } from 'src/app/model/company';
 import { LoginService } from 'src/app/services/login.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -10,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ProfilePictureComponent implements OnInit {
   @Input() user: ApplicationUser = new ApplicationUser();
+  @Input() company: Company = new Company();
   @Input() size: number = 50;
   @Input() activeUser: boolean = false;
   fullName: string = 'Null';
@@ -27,6 +29,8 @@ export class ProfilePictureComponent implements OnInit {
       }
     } else if (this.user.id != '') {
       this.fullName = this.profileService.getFullName(this.user);
+    } else if (this.company.id != '') {
+      this.fullName = this.company.name;
     }
   }
 }

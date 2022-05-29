@@ -25,7 +25,6 @@ import { WriteCommentComponent } from './components/post-page-component/write-co
 import { CommentPreviewComponent } from './components/post-page-component/comment-preview/comment-preview.component';
 import { PhotoLightBoxComponent } from './components/post-page-component/photo-light-box/photo-light-box.component';
 import { ProfilePictureComponent } from './components/profile-picture/profile-picture.component';
-import { CompanyPictureComponent } from './components/company-picture/company-picture.component';
 import { NotAuthorizedComponent } from './components/not-authorized/not-authorized.component';
 import { SidebarRightComponent } from './components/sidebar-right/sidebar-right.component';
 
@@ -49,7 +48,6 @@ import { SidebarRightComponent } from './components/sidebar-right/sidebar-right.
     CommentPreviewComponent,
     PhotoLightBoxComponent,
     ProfilePictureComponent,
-    CompanyPictureComponent,
     NotAuthorizedComponent,
     SidebarRightComponent
   ],

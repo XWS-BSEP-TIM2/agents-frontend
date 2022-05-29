@@ -1,4 +1,36 @@
 <h2>Companies of Dislinkt Agents</h2>
-<mat-divider class="mb-5"></mat-divider>
+<mat-spinner color="accent" *ngIf="companies.length == 0"></mat-spinner>
+<div *ngFor="let company of companies.slice(0, 5)">
+  <mat-card class="suggestion-container">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <profile-picture [company]="company" [size]="40"></profile-picture>
+      </div>
+      <mat-card-title
+        ><span>{{ company.name }}</span></mat-card-title
+      >
+      <mat-card-subtitle
+        ><span>{{ company.tagline }}</span></mat-card-subtitle
+      >
+    </mat-card-header>
+  </mat-card>
+</div>
+
+<mat-divider class="my-5"></mat-divider>
 <h2>Users of Dislinkt Agents</h2>
-<mat-divider class="mb-5"></mat-divider>
+<mat-spinner color="accent" *ngIf="users.length == 0"></mat-spinner>
+<div *ngFor="let user of users.slice(0, 5)">
+  <mat-card class="suggestion-container">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <profile-picture [user]="user" [size]="40"></profile-picture>
+      </div>
+      <mat-card-title
+        ><span>{{ user.name }} {{ user.surname }}</span></mat-card-title
+      >
+      <mat-card-subtitle
+        ><span>{{ user.email }}</span></mat-card-subtitle
+      >
+    </mat-card-header>
+  </mat-card>
+</div>

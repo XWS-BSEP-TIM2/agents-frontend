@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Post } from 'src/app/model/post';
 
 @Component({
   selector: 'post-display',
@@ -6,15 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-display.component.scss'],
 })
 export class PostDisplayComponent implements OnInit {
+  @Input() post: Post = new Post();
   constructor() {}
 
-  ngOnInit(): void {}
-
-  redirectAuthorProfile() {
-    window.location.href = 'user/1';
-  }
-
-  redirectPostPage() {
-    window.location.href = 'post/1';
+  ngOnInit(): void {
+    console.log(this.post);
   }
 }
