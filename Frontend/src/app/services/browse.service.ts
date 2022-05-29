@@ -45,6 +45,11 @@ export class BrowseService {
     return this._http.get<any>(url);
   }
 
+  getAllJobOffersByCompany(id: string) {
+    const url = this.url + '/job-offers/company/' + id;
+    return this._http.get<any>(url);
+  }
+
   getJobOfferById(id: string) {
     const url = this.url + '/job-offer/' + id;
     return this._http.get<any>(url);

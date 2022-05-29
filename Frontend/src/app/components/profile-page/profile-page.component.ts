@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApplicationUser } from 'src/app/model/applicationUser';
 import { Company } from 'src/app/model/company';
+import { JobOffer } from 'src/app/model/jobOffer';
 import { BrowseService } from 'src/app/services/browse.service';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -13,6 +14,7 @@ import { LoginService } from 'src/app/services/login.service';
 export class ProfilePageComponent implements OnInit {
   user: ApplicationUser = new ApplicationUser();
   company: Company = new Company();
+  jobOffers: JobOffer[] = [];
 
   constructor(
     private loginService: LoginService,
@@ -32,6 +34,12 @@ export class ProfilePageComponent implements OnInit {
           .subscribe((data) => {
             if (data != null) {
               this.company = data;
+
+              this.browseService
+                .getAllJobOffersByCompany(this.company.id)
+                .subscribe((data) => {
+                  this, (this.jobOffers = data);
+                });
             }
           });
       }
@@ -44,4 +52,8 @@ export class ProfilePageComponent implements OnInit {
   }
 
   registerCompanyForm() {}
+
+  redirectJobOffer(id: string) {
+    window.location.href = '/job-offer/' + id;
+  }
 }

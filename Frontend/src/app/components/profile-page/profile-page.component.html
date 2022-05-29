@@ -1,4 +1,4 @@
-<div class="columns">
+<div class="columns mb-5 pb-5">
   <div class="column">
     <mat-spinner color="accent" *ngIf="user.name == ''"></mat-spinner>
     <div
@@ -61,9 +61,11 @@
         </div>
         <div
           class="is-flex is-flex-direction-column is-justify-content-flex-start is-align-items-end"
-        ><mat-chip-list>
-          <mat-chip selected>COMPANY</mat-chip>
-        </mat-chip-list></div>
+        >
+          <mat-chip-list>
+            <mat-chip selected>COMPANY</mat-chip>
+          </mat-chip-list>
+        </div>
       </div>
     </div>
 
@@ -152,6 +154,17 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <h2>Job offers ({{ jobOffers.length }})</h2>
+        <p *ngIf="jobOffers.length == 0">
+          This company has no job offers at the moment.
+        </p>
+        <div class="box clickable" *ngFor="let jobOffer of jobOffers" (click)="redirectJobOffer(jobOffer.id)">
+          <h2>{{ jobOffer.position }}: {{ jobOffer.seniority }}</h2>
+          <p>
+            {{ jobOffer.description }}
+          </p>
         </div>
       </div>
     </div>
