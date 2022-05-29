@@ -1,0 +1,47 @@
+<div class="p-5 is-flex is-flex-direction-column dialog">
+  <h2>Register your company</h2>
+  <mat-form-field appearance="fill" color="accent">
+    <mat-label>Company name</mat-label>
+    <input matInput [(ngModel)]="company.name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" color="accent">
+    <mat-label>Company tagline</mat-label>
+    <input matInput [(ngModel)]="company.tagline" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" color="accent">
+    <mat-label>Description</mat-label>
+    <textarea
+      matInput
+      placeholder="Tell us about your company..."
+      [(ngModel)]="company.description"
+    ></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" color="accent">
+    <mat-label>Technologies (comma separated)</mat-label>
+    <input matInput [(ngModel)]="technologies" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" color="accent">
+    <mat-label>Email(s) (comma separated)</mat-label>
+    <input matInput [(ngModel)]="emails" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" color="accent">
+    <mat-label>Phone number(s) (comma separated)</mat-label>
+    <input matInput [(ngModel)]="phoneNumbers" />
+  </mat-form-field>
+
+  <div class="mt-5">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="!validForm()"
+      (click)="send()"
+    >
+      Send request
+    </button>
+  </div>
+</div>

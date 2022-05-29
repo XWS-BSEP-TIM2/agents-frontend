@@ -9,7 +9,11 @@
     <div
       class="stretch-width is-flex is-flex-direction-column is-align-items-center my-5"
     >
-      <post-display *ngFor="let post of posts" [post]="post"></post-display>
+      <post-display
+        class="stretch-width"
+        *ngFor="let post of posts"
+        [post]="post"
+      ></post-display>
     </div>
   </div>
   <div class="column is-4 side-column">

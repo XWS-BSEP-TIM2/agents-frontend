@@ -13,12 +13,6 @@ export class UserService {
 
   constructor(private _http: HttpClient, private loginService: LoginService) {}
 
-  getUserById(userId: string) {
-    const headers = this.loginService.getHeaders();
-    const url = this.url + '/' + userId;
-    return this._http.get<any>(url, { headers: headers });
-  }
-
   getFullName(profile: ApplicationUser) {
     return profile.name + ' ' + profile.surname;
   }
@@ -39,5 +33,11 @@ export class UserService {
     const headers = this.loginService.getHeaders();
     const url = this.url + '/company-owner-request/reject';
     return this._http.put<any>(url, company, { headers: headers });
+  }
+
+  getCompanyOwnerRequests() {
+    const headers = this.loginService.getHeaders();
+    const url = this.url + '/company-owner-requests';
+    return this._http.get<any>(url, { headers: headers });
   }
 }

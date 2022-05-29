@@ -1,3 +1,47 @@
-<div>
-    Admin Dashboard
+<div class="columns mb-5 pb-5">
+  <div class="column">
+    <h1>Admin Dashboard</h1>
+    <h2>Pending requests ({{ requests.length }})</h2>
+    <div class="box" *ngFor="let request of requests">
+      <h1>{{ request.company.name }}: {{ request.company.tagline }}</h1>
+      <div class="columns">
+        <div class="column mr-5">
+          <h2>Description</h2>
+          <p class="has-text-justified">
+            {{ request.company.description }}
+          </p>
+        </div>
+        <div class="column is-5 ml-5">
+          <h2>User informations</h2>
+          <p>
+            {{ request.company.user.name }} {{ request.company.user.surname }}
+          </p>
+          <p>
+            {{ request.company.user.email }}
+          </p>
+        </div>
+      </div>
+      <hr />
+
+      <button
+        mat-raised-button
+        color="warn"
+        class="mr-5"
+        (click)="reject(request.company)"
+      >
+        Reject
+      </button>
+
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="accept(request.company)"
+      >
+        Accept
+      </button>
+    </div>
+  </div>
+  <div class="column is-4 side-column">
+    <sidebar-right></sidebar-right>
+  </div>
 </div>

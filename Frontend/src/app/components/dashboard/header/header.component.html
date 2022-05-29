@@ -10,7 +10,12 @@
     <!--  <button>more</button> -->
   </div>
   <mat-menu #profile="matMenu" class="mt-2">
-    <button mat-menu-item class="px-5" (click)="redirectMyProfile()">
+    <button
+      mat-menu-item
+      class="px-5"
+      (click)="redirectMyProfile()"
+      *ngIf="loginUser.role != 'ADMIN'"
+    >
       <mat-icon>person</mat-icon>
       <span>My Company</span>
     </button>

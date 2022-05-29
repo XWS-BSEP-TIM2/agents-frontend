@@ -1,5 +1,5 @@
 <div class="columns mb-5 pb-5">
-  <div class="column">
+  <div class="column stretch-width">
     <mat-spinner color="accent" *ngIf="user.name == ''"></mat-spinner>
     <div
       class="stretch-width box"
@@ -80,6 +80,7 @@
           mat-raised-button
           color="accent"
           (click)="registerCompanyForm()"
+          [disabled]="company.id != ''"
         >
           Register your company
         </button>
@@ -89,10 +90,10 @@
     <!-- COMPANY OWNER - FEED -->
     <div
       *ngIf="!myProfileFunc() && user.role == 'COMPANY_OWNER'"
-      class="content is-flex is-flex-direction-column is-align-items-center"
+      class="content is-flex is-flex-direction-column is-align-items-center stretch-width"
     >
-      <div *ngIf="company.id != ''">
-        <div class="box">
+      <div class="stretch-width" *ngIf="company.id != ''">
+        <div class="box stretch-width">
           <div class="columns">
             <div class="column mr-5">
               <h2>Description</h2>
@@ -160,7 +161,11 @@
         <p *ngIf="jobOffers.length == 0">
           This company has no job offers at the moment.
         </p>
-        <div class="box clickable" *ngFor="let jobOffer of jobOffers" (click)="redirectJobOffer(jobOffer.id)">
+        <div
+          class="box clickable"
+          *ngFor="let jobOffer of jobOffers"
+          (click)="redirectJobOffer(jobOffer.id)"
+        >
           <h2>{{ jobOffer.position }}: {{ jobOffer.seniority }}</h2>
           <p>
             {{ jobOffer.description }}

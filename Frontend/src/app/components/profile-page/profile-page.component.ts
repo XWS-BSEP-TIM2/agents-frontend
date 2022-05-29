@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ApplicationUser } from 'src/app/model/applicationUser';
 import { Company } from 'src/app/model/company';
 import { JobOffer } from 'src/app/model/jobOffer';
 import { BrowseService } from 'src/app/services/browse.service';
 import { LoginService } from 'src/app/services/login.service';
+import { RegisterCompanyFormComponent } from '../register-company-form/register-company-form.component';
 
 @Component({
   selector: 'profile-page',
@@ -19,7 +21,8 @@ export class ProfilePageComponent implements OnInit {
   constructor(
     private loginService: LoginService,
     private browseService: BrowseService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -28,21 +31,19 @@ export class ProfilePageComponent implements OnInit {
     this.browseService.getUserById(this.user.id).subscribe((data) => {
       this.user = data;
 
-      if (this.user.role == 'COMPANY_OWNER') {
-        this.browseService
-          .getCompanyByUserId(this.user.id)
-          .subscribe((data) => {
-            if (data != null) {
-              this.company = data;
+      this.browseService.getCompanyByUserId(this.user.id).subscribe((data) => {
+        if (data != null) {
+          this.company = data;
 
-              this.browseService
-                .getAllJobOffersByCompany(this.company.id)
-                .subscribe((data) => {
-                  this, (this.jobOffers = data);
-                });
-            }
-          });
-      }
+          if (this.user.role == 'COMPANY_OWNER') {
+            this.browseService
+              .getAllJobOffersByCompany(this.company.id)
+              .subscribe((data) => {
+                this, (this.jobOffers = data);
+              });
+          }
+        }
+      });
     });
   }
 
@@ -51,7 +52,9 @@ export class ProfilePageComponent implements OnInit {
     return urlID === this.loginService.getCurrentUser().id;
   }
 
-  registerCompanyForm() {}
+  registerCompanyForm() {
+    const dialogRef = this.dialog.open(RegisterCompanyFormComponent);
+  }
 
   redirectJobOffer(id: string) {
     window.location.href = '/job-offer/' + id;

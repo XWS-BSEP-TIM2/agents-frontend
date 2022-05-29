@@ -29,6 +29,7 @@ import { ProfilePictureComponent } from './components/profile-picture/profile-pi
 import { NotAuthorizedComponent } from './components/not-authorized/not-authorized.component';
 import { SidebarRightComponent } from './components/sidebar-right/sidebar-right.component';
 import { NgxStarRatingModule } from 'ngx-star-rating';
+import { RegisterCompanyFormComponent } from './components/register-company-form/register-company-form.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
     ProfilePictureComponent,
     NotAuthorizedComponent,
     SidebarRightComponent,
+    RegisterCompanyFormComponent,
   ],
   imports: [
     BrowserModule,
