@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { User } from 'src/app/model/user';
+import { ApplicationUser } from 'src/app/model/applicationUser';
 import { LoginService } from 'src/app/services/login.service';
-import { ProfileService } from 'src/app/services/profile.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'profile-page',
@@ -10,11 +10,11 @@ import { ProfileService } from 'src/app/services/profile.service';
   styleUrls: ['./profile-page.component.scss'],
 })
 export class ProfilePageComponent implements OnInit {
-  user: User = new User();
+  user: ApplicationUser = new ApplicationUser();
 
   constructor(
     private loginService: LoginService,
-    private profileService: ProfileService,
+    private profileService: UserService,
     private route: ActivatedRoute
   ) {}
 
@@ -32,7 +32,5 @@ export class ProfilePageComponent implements OnInit {
     return urlID === this.loginService.getCurrentUser().id;
   }
 
-  registerCompanyForm() {
-    
-  }
+  registerCompanyForm() {}
 }

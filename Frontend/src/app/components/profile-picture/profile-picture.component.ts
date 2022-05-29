@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { User } from 'src/app/model/user';
+import { ApplicationUser } from 'src/app/model/applicationUser';
 import { LoginService } from 'src/app/services/login.service';
-import { ProfileService } from 'src/app/services/profile.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'profile-picture',
@@ -9,13 +9,13 @@ import { ProfileService } from 'src/app/services/profile.service';
   styleUrls: ['./profile-picture.component.scss'],
 })
 export class ProfilePictureComponent implements OnInit {
-  @Input() user: User = new User();
+  @Input() user: ApplicationUser = new ApplicationUser();
   @Input() size: number = 50;
   @Input() activeUser: boolean = false;
   fullName: string = 'Null';
 
   constructor(
-    private profileService: ProfileService,
+    private profileService: UserService,
     private loginService: LoginService
   ) {}
 

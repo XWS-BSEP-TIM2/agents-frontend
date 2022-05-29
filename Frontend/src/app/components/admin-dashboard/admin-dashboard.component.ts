@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from '../../services/profile.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'admin-dashboard',
@@ -7,7 +7,7 @@ import { ProfileService } from '../../services/profile.service';
   styleUrls: ['./admin-dashboard.component.scss'],
 })
 export class AdminDashboardComponent implements OnInit {
-  constructor(private profileService: ProfileService) {}
+  constructor(private profileService: UserService) {}
 
   ngOnInit(): void {}
 }
