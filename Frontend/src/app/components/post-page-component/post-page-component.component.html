@@ -5,7 +5,10 @@
       *ngIf="jobOffer.position != ''"
     >
       <detailed-post-display [jobOffer]="jobOffer"></detailed-post-display>
-      <write-comment *ngIf="currentUser.role === 'USER'"></write-comment>
+      <write-comment
+        *ngIf="currentUser.role === 'USER'"
+        [jobOffer]="jobOffer"
+      ></write-comment>
       <div *ngIf="commentsLoaded">
         <h2>Comments ({{ comments.length }})</h2>
         <mat-divider class="mb-5"></mat-divider>

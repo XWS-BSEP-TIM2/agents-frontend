@@ -10,6 +10,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AvatarModule } from 'ngx-avatar';
+import { NgxMaterialRatingModule } from 'ngx-material-rating';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './components/dashboard/sidebar/sidebar.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
@@ -27,6 +28,7 @@ import { PhotoLightBoxComponent } from './components/post-page-component/photo-l
 import { ProfilePictureComponent } from './components/profile-picture/profile-picture.component';
 import { NotAuthorizedComponent } from './components/not-authorized/not-authorized.component';
 import { SidebarRightComponent } from './components/sidebar-right/sidebar-right.component';
+import { NgxStarRatingModule } from 'ngx-star-rating';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,7 @@ import { SidebarRightComponent } from './components/sidebar-right/sidebar-right.
     PhotoLightBoxComponent,
     ProfilePictureComponent,
     NotAuthorizedComponent,
-    SidebarRightComponent
+    SidebarRightComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +62,7 @@ import { SidebarRightComponent } from './components/sidebar-right/sidebar-right.
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxStarRatingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
