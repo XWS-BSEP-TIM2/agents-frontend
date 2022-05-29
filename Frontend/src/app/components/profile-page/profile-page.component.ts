@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApplicationUser } from 'src/app/model/applicationUser';
+import { Company } from 'src/app/model/company';
+import { BrowseService } from 'src/app/services/browse.service';
 import { LoginService } from 'src/app/services/login.service';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'profile-page',
@@ -11,19 +12,30 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ProfilePageComponent implements OnInit {
   user: ApplicationUser = new ApplicationUser();
+  company: Company = new Company();
 
   constructor(
     private loginService: LoginService,
-    private profileService: UserService,
+    private browseService: BrowseService,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.user.id = this.route.snapshot.paramMap.get('id')!;
-    this.myProfileFunc();
+    console.log(this.user.id);
 
-    this.profileService.getUserById(this.user.id).subscribe((data) => {
+    this.browseService.getUserById(this.user.id).subscribe((data) => {
       this.user = data;
+
+      if (this.user.role == 'COMPANY_OWNER') {
+        this.browseService
+          .getCompanyByUserId(this.user.id)
+          .subscribe((data) => {
+            if (data != null) {
+              this.company = data;
+            }
+          });
+      }
     });
   }
 

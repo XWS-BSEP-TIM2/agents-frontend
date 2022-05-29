@@ -54,4 +54,9 @@ export class BrowseService {
     const url = this.url + '/job-offer/comments/' + id;
     return this._http.get<any>(url);
   }
+
+  getCompanyByUserId(id: string) {
+    const url = this.url + '/company/user/' + id;
+    return this._http.get<any>(url);
+  }
 }

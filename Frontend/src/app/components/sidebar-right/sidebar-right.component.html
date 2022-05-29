@@ -1,7 +1,10 @@
 <h2>Companies of Dislinkt Agents</h2>
 <mat-spinner color="accent" *ngIf="companies.length == 0"></mat-spinner>
 <div *ngFor="let company of companies.slice(0, 5)">
-  <mat-card class="suggestion-container">
+  <mat-card
+    class="suggestion-container clickable"
+    (click)="redirectUser(company.user.id)"
+  >
     <mat-card-header>
       <div mat-card-avatar>
         <profile-picture [company]="company" [size]="40"></profile-picture>
@@ -20,7 +23,10 @@
 <h2>Users of Dislinkt Agents</h2>
 <mat-spinner color="accent" *ngIf="users.length == 0"></mat-spinner>
 <div *ngFor="let user of users.slice(0, 5)">
-  <mat-card class="suggestion-container">
+  <mat-card
+    class="suggestion-container clickable"
+    (click)="redirectUser(user.id)"
+  >
     <mat-card-header>
       <div mat-card-avatar>
         <profile-picture [user]="user" [size]="40"></profile-picture>

@@ -1,7 +1,10 @@
 <div class="columns">
   <div class="column">
     <mat-spinner color="accent" *ngIf="user.name == ''"></mat-spinner>
-    <div class="stretch-width box" *ngIf="user.name != ''">
+    <div
+      class="stretch-width box"
+      *ngIf="user.name != '' && user.role != 'COMPANY_OWNER'"
+    >
       <div class="cover-image"></div>
       <div class="profile-photo" *ngIf="user.name != ''">
         <profile-picture
@@ -22,6 +25,9 @@
           <h1>
             <span class="clickable"> {{ user.name }} {{ user.surname }} </span>
           </h1>
+          <p>
+            {{ user.email }}
+          </p>
         </div>
         <div
           class="is-flex is-flex-direction-column is-justify-content-flex-start is-align-items-end"
@@ -32,13 +38,119 @@
         </div>
       </div>
     </div>
+
+    <div
+      class="stretch-width box"
+      *ngIf="
+        user.name != '' && user.role == 'COMPANY_OWNER' && company.id != ''
+      "
+    >
+      <div class="cover-image2"></div>
+      <div class="profile-photo" *ngIf="user.name != ''">
+        <profile-picture [company]="company" [size]="120"></profile-picture>
+      </div>
+
+      <div class="mt-5 is-flex is-flex-direction-row">
+        <div class="stretch-width">
+          <h1>
+            <span class="clickable"> {{ company.name }} </span>
+          </h1>
+          <h2>
+            {{ company.tagline }}
+          </h2>
+        </div>
+        <div
+          class="is-flex is-flex-direction-column is-justify-content-flex-start is-align-items-end"
+        ></div>
+      </div>
+    </div>
+
+    <!-- USER - FEED -->
     <div
       *ngIf="myProfileFunc() && user.role == 'USER'"
       class="content is-medium is-flex is-flex-direction-column is-align-items-center"
     >
       <p>You are not a company owner yet.</p>
       <div>
-        <button mat-raised-button color="accent" (click)="registerCompanyForm()">Register your company</button>
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="registerCompanyForm()"
+        >
+          Register your company
+        </button>
+      </div>
+    </div>
+
+    <!-- COMPANY OWNER - FEED -->
+    <div
+      *ngIf="!myProfileFunc() && user.role == 'COMPANY_OWNER'"
+      class="content is-flex is-flex-direction-column is-align-items-center"
+    >
+      <div *ngIf="company.id != ''">
+        <div class="box">
+          <div class="columns">
+            <div class="column mr-5">
+              <h2>Description</h2>
+              <p class="has-text-justified">
+                {{ company.description }}
+              </p>
+            </div>
+            <div class="column is-5 ml-5">
+              <h2>Contact informations</h2>
+              <div
+                class="personal-info"
+                *ngFor="let email of company.emailList"
+              >
+                <span>
+                  <mat-icon>email</mat-icon>
+                  <strong class="info-text">{{ email }}</strong>
+                </span>
+              </div>
+              <div
+                class="personal-info"
+                *ngFor="let phone of company.phoneNumberList"
+              >
+                <span>
+                  <mat-icon>phone</mat-icon>
+                  <strong class="info-text">{{ phone }}</strong>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="box stretch-height">
+              <h2>Technologies</h2>
+              <mat-chip-list>
+                <mat-chip
+                  color="primary"
+                  selected
+                  disableRipple="true"
+                  *ngFor="let technology of company.technologies"
+                  >{{ technology }}</mat-chip
+                >
+              </mat-chip-list>
+              <div class="ml-3 mb-5" *ngIf="company.technologies.length == 0">
+                No technologies to show.
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="box stretch-height">
+              <h2>Company owner</h2>
+              <h3>{{ user.name }} {{ user.surname }}</h3>
+              <p>{{ user.email }}</p>
+
+              <div class="ml-3 mb-5" *ngIf="company.technologies.length == 0">
+                No technologies to show.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

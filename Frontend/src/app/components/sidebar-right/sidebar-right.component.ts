@@ -48,4 +48,8 @@ export class SidebarRightComponent implements OnInit {
 
     return array;
   }
+
+  redirectUser(id: string) {
+    window.location.href = '/user/' + id;
+  }
 }
