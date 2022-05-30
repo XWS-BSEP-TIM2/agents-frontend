@@ -25,7 +25,7 @@ export class LoginService {
   logout() {
     var user = new LoginResponse();
     localStorage.setItem('currentUser', JSON.stringify(user));
-    window.location.href = '/';
+    window.location.href = '/login';
   }
 
   getCurrentUser(): LoginResponse {
