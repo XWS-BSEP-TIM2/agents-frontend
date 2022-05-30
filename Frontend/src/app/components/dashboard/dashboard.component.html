@@ -1,8 +1,12 @@
 <mat-drawer-container class="stretch-height">
-  <mat-drawer mode="side" opened><sidebar></sidebar></mat-drawer>
+  <mat-drawer mode="side" opened
+    ><sidebar *ngIf="!guest"></sidebar>
+    <browse-sidebar *ngIf="guest"></browse-sidebar
+  ></mat-drawer>
   <mat-drawer-content>
     <div>
-      <header></header>
+      <header *ngIf="!guest"></header>
+      <browse-header *ngIf="guest"></browse-header>
       <div
         class="is-flex stretch-width is-flex-direction-column is-align-items-center"
       >

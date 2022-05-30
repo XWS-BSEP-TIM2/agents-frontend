@@ -1,4 +1,7 @@
-<h1>Hello, {{ loginResponse.fullName }}! 👋</h1>
+<h1 *ngIf="loginResponse.fullName != ''">
+  Hello, {{ loginResponse.fullName }}! 👋
+</h1>
+<h1 *ngIf="loginResponse.fullName == ''">Welcome to Dislinkt Agents! 👋</h1>
 <div class="columns">
   <div class="column">
     <h2>

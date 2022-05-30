@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { JobOffer } from 'src/app/model/jobOffer';
-import { PhotoLightBoxComponent } from '../photo-light-box/photo-light-box.component';
 
 @Component({
   selector: 'detailed-post-display',
@@ -17,9 +16,5 @@ export class DetailedPostDisplayComponent implements OnInit {
 
   redirectAuthorProfile() {
     window.location.href = '/user/' + this.jobOffer.company.user.id;
-  }
-
-  openImageLightbox() {
-    this.dialog.open(PhotoLightBoxComponent);
   }
 }
