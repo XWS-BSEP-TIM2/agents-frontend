@@ -62,9 +62,20 @@
         <div
           class="is-flex is-flex-direction-column is-justify-content-flex-start is-align-items-end"
         >
-          <mat-chip-list>
-            <mat-chip selected>COMPANY</mat-chip>
-          </mat-chip-list>
+          <div class="is-flex is-flex-direction-row is-align-items-center">
+            <button
+              mat-icon-button
+              color="accent"
+              matTooltip="Company settings"
+              *ngIf="myProfileFunc() && user.role == 'COMPANY_OWNER'"
+              (click)="companySettings()"
+            >
+              <mat-icon>settings</mat-icon>
+            </button>
+            <mat-chip-list>
+              <mat-chip selected>COMPANY</mat-chip>
+            </mat-chip-list>
+          </div>
         </div>
       </div>
     </div>
@@ -89,7 +100,7 @@
 
     <!-- COMPANY OWNER - FEED -->
     <div
-      *ngIf="!myProfileFunc() && user.role == 'COMPANY_OWNER'"
+      *ngIf="user.role == 'COMPANY_OWNER'"
       class="content is-flex is-flex-direction-column is-align-items-center stretch-width"
     >
       <div class="stretch-width" *ngIf="company.id != ''">

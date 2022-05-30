@@ -1,5 +1,5 @@
 <div class="p-5 is-flex is-flex-direction-column dialog">
-  <h2>Register your company</h2>
+  <h2>Company settings</h2>
   <mat-form-field appearance="fill" color="accent">
     <mat-label>Company name</mat-label>
     <input matInput [(ngModel)]="company.name" />
@@ -32,6 +32,11 @@
   <mat-form-field appearance="fill" color="accent">
     <mat-label>Phone number(s) (comma separated)</mat-label>
     <input matInput [(ngModel)]="phoneNumbers" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" color="warn">
+    <mat-label>Dislinkt API key</mat-label>
+    <input matInput [(ngModel)]="user.apiToken" />
   </mat-form-field>
 
   <div

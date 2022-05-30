@@ -6,6 +6,7 @@ import { Company } from 'src/app/model/company';
 import { JobOffer } from 'src/app/model/jobOffer';
 import { BrowseService } from 'src/app/services/browse.service';
 import { LoginService } from 'src/app/services/login.service';
+import { EditCompanyFormComponent } from '../edit-company-form/edit-company-form.component';
 import { RegisterCompanyFormComponent } from '../register-company-form/register-company-form.component';
 
 @Component({
@@ -58,5 +59,9 @@ export class ProfilePageComponent implements OnInit {
 
   redirectJobOffer(id: string) {
     window.location.href = '/job-offer/' + id;
+  }
+
+  companySettings() {
+    const dialogRef = this.dialog.open(EditCompanyFormComponent);
   }
 }

@@ -30,6 +30,7 @@ import { NotAuthorizedComponent } from './components/not-authorized/not-authoriz
 import { SidebarRightComponent } from './components/sidebar-right/sidebar-right.component';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { RegisterCompanyFormComponent } from './components/register-company-form/register-company-form.component';
+import { EditCompanyFormComponent } from './components/edit-company-form/edit-company-form.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { RegisterCompanyFormComponent } from './components/register-company-form
     NotAuthorizedComponent,
     SidebarRightComponent,
     RegisterCompanyFormComponent,
+    EditCompanyFormComponent,
   ],
   imports: [
     BrowserModule,

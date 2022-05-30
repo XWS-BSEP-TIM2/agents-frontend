@@ -40,4 +40,10 @@ export class UserService {
     const url = this.url + '/company-owner-requests';
     return this._http.get<any>(url, { headers: headers });
   }
+
+  updateUserApiToken(user: ApplicationUser) {
+    const headers = this.loginService.getHeaders();
+    const url = this.url + '/apiToken';
+    return this._http.put<any>(url, user, { headers: headers });
+  }
 }
