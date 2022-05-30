@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LoginResponse } from 'src/app/model/loginResponse';
 import { LoginService } from 'src/app/services/login.service';
-import { NewPostDialogComponent } from '../../new-post-dialog/new-post-dialog.component';
+import { NewJobOfferDialogComponent } from '../../my-job-offers-page/new-job-offer-dialog/new-job-offer-dialog.component';
 
 @Component({
   selector: 'sidebar',
@@ -42,8 +42,6 @@ export class SidebarComponent implements OnInit {
   }
 
   newPost() {
-    const dialogRef = this.dialog.open(NewPostDialogComponent, {
-      position: { top: '75px' },
-    });
+    const dialogRef = this.dialog.open(NewJobOfferDialogComponent);
   }
 }

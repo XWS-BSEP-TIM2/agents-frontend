@@ -10,7 +10,6 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AvatarModule } from 'ngx-avatar';
-import { NgxMaterialRatingModule } from 'ngx-material-rating';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './components/dashboard/sidebar/sidebar.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
@@ -19,7 +18,6 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { FeedComponent } from './components/feed/feed.component';
 import { HeaderComponent } from './components/dashboard/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NewPostDialogComponent } from './components/new-post-dialog/new-post-dialog.component';
 import { PostPageComponentComponent } from './components/post-page-component/post-page-component.component';
 import { DetailedPostDisplayComponent } from './components/post-page-component/detailed-post-display/detailed-post-display.component';
 import { WriteCommentComponent } from './components/post-page-component/write-comment/write-comment.component';
@@ -33,6 +31,8 @@ import { RegisterCompanyFormComponent } from './components/register-company-form
 import { EditCompanyFormComponent } from './components/edit-company-form/edit-company-form.component';
 import { MyJobOffersPageComponent } from './components/my-job-offers-page/my-job-offers-page.component';
 import { SearchFeedComponent } from './components/search-feed/search-feed.component';
+import { NewJobOfferDialogComponent } from './components/my-job-offers-page/new-job-offer-dialog/new-job-offer-dialog.component';
+import { EditJobOfferDialogComponent } from './components/my-job-offers-page/edit-job-offer-dialog/edit-job-offer-dialog.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,6 @@ import { SearchFeedComponent } from './components/search-feed/search-feed.compon
     AdminDashboardComponent,
     FeedComponent,
     HeaderComponent,
-    NewPostDialogComponent,
     PostPageComponentComponent,
     DetailedPostDisplayComponent,
     WriteCommentComponent,
@@ -60,6 +59,8 @@ import { SearchFeedComponent } from './components/search-feed/search-feed.compon
     EditCompanyFormComponent,
     MyJobOffersPageComponent,
     SearchFeedComponent,
+    NewJobOfferDialogComponent,
+    EditJobOfferDialogComponent,
   ],
   imports: [
     BrowserModule,

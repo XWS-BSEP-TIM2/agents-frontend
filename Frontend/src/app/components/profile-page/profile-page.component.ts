@@ -40,7 +40,8 @@ export class ProfilePageComponent implements OnInit {
             this.browseService
               .getAllJobOffersByCompany(this.company.id)
               .subscribe((data) => {
-                this, (this.jobOffers = data);
+                data.reverse();
+                this.jobOffers = data;
               });
           }
         }
