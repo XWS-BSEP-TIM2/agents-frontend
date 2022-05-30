@@ -25,7 +25,6 @@ export class LoginPageComponent implements OnInit {
       this.errorMessage = '';
       this.loginService.login(this.loginRequest).subscribe(
         (response) => {
-          console.log(response);
           if (response != undefined) {
             this.successfulLogin(response);
           } else {

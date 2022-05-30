@@ -31,6 +31,8 @@ import { SidebarRightComponent } from './components/sidebar-right/sidebar-right.
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { RegisterCompanyFormComponent } from './components/register-company-form/register-company-form.component';
 import { EditCompanyFormComponent } from './components/edit-company-form/edit-company-form.component';
+import { MyJobOffersPageComponent } from './components/my-job-offers-page/my-job-offers-page.component';
+import { SearchFeedComponent } from './components/search-feed/search-feed.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { EditCompanyFormComponent } from './components/edit-company-form/edit-co
     SidebarRightComponent,
     RegisterCompanyFormComponent,
     EditCompanyFormComponent,
+    MyJobOffersPageComponent,
+    SearchFeedComponent,
   ],
   imports: [
     BrowserModule,

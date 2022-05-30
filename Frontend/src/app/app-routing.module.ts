@@ -10,6 +10,8 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
 import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
 import { AuthGuard, UnAuthGuard } from './services/auth-guard.service';
 import { NotAuthorizedComponent } from './components/not-authorized/not-authorized.component';
+import { MyJobOffersPageComponent } from './components/my-job-offers-page/my-job-offers-page.component';
+import { SearchFeedComponent } from './components/search-feed/search-feed.component';
 
 const routes: Routes = [
   {
@@ -17,11 +19,13 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       { path: '', component: FeedComponent },
+      { path: 'search/:searchText', component: SearchFeedComponent },
       {
         path: 'admin',
         component: AdminDashboardComponent,
       },
       { path: 'job-offer/:id', component: JobOfferPageComponentComponent },
+      { path: 'job-offers', component: MyJobOffersPageComponent },
       {
         path: 'user/:id',
         component: ProfilePageComponent,

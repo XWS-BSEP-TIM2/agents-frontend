@@ -10,9 +10,7 @@ export class PostDisplayComponent implements OnInit {
   @Input() post: Post = new Post();
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.post);
-  }
+  ngOnInit(): void {}
 
   redirectProfile(id: string) {
     window.location.href = '/user/' + id;

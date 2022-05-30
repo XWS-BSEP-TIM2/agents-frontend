@@ -17,7 +17,8 @@
       *ngIf="loginUser.role != 'ADMIN'"
     >
       <mat-icon>person</mat-icon>
-      <span>My Company</span>
+      <span *ngIf="loginUser.role != 'COMPANY_OWNER'">My Company</span>
+      <span *ngIf="loginUser.role != 'USER'">My Company</span>
     </button>
     <button mat-menu-item class="px-5" (click)="logout()">
       <mat-icon>close</mat-icon>
@@ -39,7 +40,8 @@
         <input
           matInput
           placeholder="Search Dislinkt Agents"
-          [(ngModel)]="searchText"
+          [(ngModel)]="searchText"          
+          (keyup.enter)="performSearch()"
         />
         <button
           mat-icon-button

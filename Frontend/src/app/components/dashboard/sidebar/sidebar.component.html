@@ -25,10 +25,13 @@
       <mat-button-toggle
         value="user/{{ loginUser.id }}"
         [disabled]="loginUser.role == 'ADMIN'"
-        ><div class="label-container">
+        ><div class="label-container" *ngIf="loginUser.role == 'USER'">
+          <mat-icon>person</mat-icon>My Profile
+        </div>
+        <div class="label-container" *ngIf="loginUser.role == 'COMPANY_OWNER'">
           <mat-icon>person</mat-icon>My Company
-        </div></mat-button-toggle
-      >
+        </div>
+      </mat-button-toggle>
       <mat-button-toggle
         value="job-offers"
         [disabled]="

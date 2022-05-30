@@ -34,7 +34,6 @@ export class PostPageComponentComponent implements OnInit {
       .getJobOfferComments(this.jobOffer.id)
       .subscribe((data) => {
         this.comments = data;
-        console.log(data);
         this.commentsLoaded = true;
       });
 
