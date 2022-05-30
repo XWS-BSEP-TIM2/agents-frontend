@@ -9,6 +9,7 @@ export class Company {
     public tagline: string = '',
     public technologies: string[] = [],
     public emailList: string[] = [],
-    public phoneNumberList: string[] = []
+    public phoneNumberList: string[] = [],
+    public verified: boolean = false
   ) {}
 }

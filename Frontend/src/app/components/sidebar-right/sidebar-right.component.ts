@@ -17,7 +17,7 @@ export class SidebarRightComponent implements OnInit {
   ngOnInit(): void {
     this.browseService.getAllCompanies().subscribe((data) => {
       if (data != null) {
-        this.companies = this.shuffle(data);
+        this.companies = this.shuffle(data.filter((e: { verified: boolean; }) => e.verified == true));
       }
     });
 
