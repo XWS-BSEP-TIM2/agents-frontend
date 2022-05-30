@@ -33,6 +33,9 @@ import { MyJobOffersPageComponent } from './components/my-job-offers-page/my-job
 import { SearchFeedComponent } from './components/search-feed/search-feed.component';
 import { NewJobOfferDialogComponent } from './components/my-job-offers-page/new-job-offer-dialog/new-job-offer-dialog.component';
 import { EditJobOfferDialogComponent } from './components/my-job-offers-page/edit-job-offer-dialog/edit-job-offer-dialog.component';
+import { BrowsePageComponent } from './components/browse-page/browse-page.component';
+import { BrowseSidebarComponent } from './components/browse-page/browse-sidebar/browse-sidebar.component';
+import { BrowseHeaderComponent } from './components/browse-page/browse-header/browse-header.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +64,9 @@ import { EditJobOfferDialogComponent } from './components/my-job-offers-page/edi
     SearchFeedComponent,
     NewJobOfferDialogComponent,
     EditJobOfferDialogComponent,
+    BrowsePageComponent,
+    BrowseSidebarComponent,
+    BrowseHeaderComponent,
   ],
   imports: [
     BrowserModule,

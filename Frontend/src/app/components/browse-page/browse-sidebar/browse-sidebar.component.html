@@ -1,0 +1,39 @@
+<div class="sidebar-container stretch-height">
+  <div class="p-5">
+    <div
+      class="is-flex is-flex-direction-row is-align-items-center clickable"
+      (click)="redirectFeed()"
+    >
+      <div>
+        <img src="assets/Dislinkt-logo-no-padding.png" width="30px" />
+      </div>
+      <h1 class="ml-2 main-title">Dislinkt Agents</h1>
+    </div>
+  </div>
+
+  <div>
+    <mat-button-toggle-group
+      vertical="true"
+      [(ngModel)]="currentPage"
+      (change)="redirect()"
+    >
+      <mat-button-toggle value="" [disabled]="currentPage == ''"
+        ><div class="label-container">
+          <mat-icon>home</mat-icon>Feed
+        </div></mat-button-toggle
+      >
+
+      <mat-button-toggle value="" [disabled]="currentPage == ''"
+        ><div class="label-container">
+          <mat-icon>input</mat-icon>Login
+        </div></mat-button-toggle
+      >
+
+      <mat-button-toggle value="register" [disabled]="currentPage == ''"
+        ><div class="label-container">
+          <mat-icon>person_add</mat-icon>Register
+        </div></mat-button-toggle
+      >
+    </mat-button-toggle-group>
+  </div>
+</div>

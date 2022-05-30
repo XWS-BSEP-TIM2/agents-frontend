@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   searchText: string = '';
   loginUser: LoginResponse = new LoginResponse();
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private loginService: LoginService) {}
 
   ngOnInit(): void {
     this.loginUser = this.loginService.getCurrentUser();

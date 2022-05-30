@@ -12,6 +12,7 @@ import { AuthGuard, UnAuthGuard } from './services/auth-guard.service';
 import { NotAuthorizedComponent } from './components/not-authorized/not-authorized.component';
 import { MyJobOffersPageComponent } from './components/my-job-offers-page/my-job-offers-page.component';
 import { SearchFeedComponent } from './components/search-feed/search-feed.component';
+import { BrowsePageComponent } from './components/browse-page/browse-page.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,20 @@ const routes: Routes = [
     ],
 
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'browse',
+    component: BrowsePageComponent,
+    children: [
+      { path: '', component: FeedComponent },
+      { path: 'search/:searchText', component: SearchFeedComponent },
+      {
+        path: 'user/:id',
+        component: ProfilePageComponent,
+      },
+      { path: 'job-offers', component: MyJobOffersPageComponent },
+    ],
+    canActivate: [UnAuthGuard],
   },
   { path: 'login', component: LoginPageComponent, canActivate: [UnAuthGuard] },
   {
