@@ -22,7 +22,7 @@ export class NewJobOfferDialogComponent implements OnInit {
     private browseService: BrowseService,
     private loginService: LoginService,
     private jobOfferService: JobOfferService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.user.id = this.loginService.getCurrentUser().id;
@@ -48,10 +48,12 @@ export class NewJobOfferDialogComponent implements OnInit {
 
   send() {
     if (this.validForm()) {
+      this.offer.publishToDislinkt = this.publishToDislinkt;
       this.offer.position = this.offer.position.trim();
       this.offer.seniority = this.offer.seniority.trim();
       this.offer.description = this.offer.description.trim();
       this.offer.technologies = this.technologies
+
         .split(',')
         .map((e) => e.trim());
 

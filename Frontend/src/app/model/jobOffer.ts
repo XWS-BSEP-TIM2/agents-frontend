@@ -7,6 +7,7 @@ export class JobOffer {
     public position: string = '',
     public seniority: string = '',
     public description: string = '',
-    public technologies: string[] = []
+    public technologies: string[] = [],
+    public publishToDislinkt:boolean=false,
   ) {}
 }
