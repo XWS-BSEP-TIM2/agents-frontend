@@ -22,7 +22,7 @@ export class NewJobOfferDialogComponent implements OnInit {
     private browseService: BrowseService,
     private loginService: LoginService,
     private jobOfferService: JobOfferService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.user.id = this.loginService.getCurrentUser().id;
@@ -57,12 +57,18 @@ export class NewJobOfferDialogComponent implements OnInit {
         .split(',')
         .map((e) => e.trim());
 
-      this.jobOfferService.postNewOffer(this.offer).subscribe((data) => {
-        if (data) {
-          alert('Your job offer has been published!');
+      this.jobOfferService.postNewOffer(this.offer).subscribe(
+        (data) => {
+          if (data) {
+            alert('Your job offer has been published!');
+            window.location.href = '/job-offers';
+          }
+        },
+        (err) => {
+          alert('Something has gone wrong. Incorrect API key.');
           window.location.href = '/job-offers';
         }
-      });
+      );
     }
   }
 }
