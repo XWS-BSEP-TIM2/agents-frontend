@@ -4,6 +4,7 @@ export class LoginResponse {
     public id: string = '',
     public role: string = '',
     public email: string = '',
-    public fullName: string = ''
+    public fullName: string = '',
+    public twoFactor:boolean=false
   ) {}
 }

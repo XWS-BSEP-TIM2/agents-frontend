@@ -12,6 +12,7 @@ import { AuthGuard, UnAuthGuard } from './services/auth-guard.service';
 import { NotAuthorizedComponent } from './components/not-authorized/not-authorized.component';
 import { MyJobOffersPageComponent } from './components/my-job-offers-page/my-job-offers-page.component';
 import { SearchFeedComponent } from './components/search-feed/search-feed.component';
+import { TwoFactorAuthComponent } from './components/two-factor-auth/two-factor-auth.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,11 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegistrationPageComponent,
+    canActivate: [UnAuthGuard],
+  },
+  {
+    path: 'two-factor',
+    component: TwoFactorAuthComponent,
     canActivate: [UnAuthGuard],
   },
   { path: 'not-authorized', component: NotAuthorizedComponent },
