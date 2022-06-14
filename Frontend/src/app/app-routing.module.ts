@@ -13,6 +13,7 @@ import { NotAuthorizedComponent } from './components/not-authorized/not-authoriz
 import { MyJobOffersPageComponent } from './components/my-job-offers-page/my-job-offers-page.component';
 import { SearchFeedComponent } from './components/search-feed/search-feed.component';
 import { TwoFactorAuthComponent } from './components/two-factor-auth/two-factor-auth.component';
+import { MagicLinkLoginComponent } from './components/magic-link-login/magic-link-login.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,11 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegistrationPageComponent,
+    canActivate: [UnAuthGuard],
+  },
+  {
+    path: 'magic-link/:id',
+    component: MagicLinkLoginComponent,
     canActivate: [UnAuthGuard],
   },
   {

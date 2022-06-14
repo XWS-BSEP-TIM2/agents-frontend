@@ -35,6 +35,7 @@ import { EditJobOfferDialogComponent } from './components/my-job-offers-page/edi
 import { BrowseSidebarComponent } from './components/dashboard/browse-sidebar/browse-sidebar.component';
 import { BrowseHeaderComponent } from './components/dashboard/browse-header/browse-header.component';
 import { TwoFactorAuthComponent } from './components/two-factor-auth/two-factor-auth.component';
+import { MagicLinkLoginComponent } from './components/magic-link-login/magic-link-login.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { TwoFactorAuthComponent } from './components/two-factor-auth/two-factor-
     BrowseSidebarComponent,
     BrowseHeaderComponent,
     TwoFactorAuthComponent,
+    MagicLinkLoginComponent,
   ],
   imports: [
     BrowserModule,

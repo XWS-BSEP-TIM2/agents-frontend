@@ -5,11 +5,23 @@ import { LoginRequest } from '../model/loginRequest';
 import { LoginResponse as LoginResponse } from '../model/loginResponse';
 import { server } from '../app-global';
 import { Verify2Factor } from '../model/verifyTwoFactor';
+import { PasswordlessLoginModel } from '../model/passwordlessModel';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
+  
+
+  loginPasswordless(token:PasswordlessLoginModel){
+    const url=this.url+'/verify-magic-link/'+token.tokenCode;
+    return this._http.get<any>(url);
+  }
+
+  sendMagicLinkMail(mail:string){
+    const url=this.url+'/send-mail/'+mail
+    return this._http.get<any>(url).subscribe();
+  }
 
   
   url = server + 'login';

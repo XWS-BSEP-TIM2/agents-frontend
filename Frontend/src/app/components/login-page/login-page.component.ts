@@ -13,6 +13,7 @@ export class LoginPageComponent implements OnInit {
   loginRequest: LoginRequest = new LoginRequest();
   errorMessage = '';
   mail = '';
+  magicLinkMail='';
 
   constructor(private loginService: LoginService, private route: Router) {}
 
@@ -41,5 +42,19 @@ export class LoginPageComponent implements OnInit {
   successfulLogin(loginResponse: LoginResponse) {
     this.errorMessage = '';
     this.loginService.loginSetUser(loginResponse);
+  }
+
+  openModalTab():void{
+    document.getElementById('modal')?.classList.toggle('is-active');
+  }
+
+  closeModalTab():void{
+    document.getElementById('modal')?.classList.toggle('is-active');
+  }
+
+  sendMagicLinkMail():void{
+    this.loginService.sendMagicLinkMail(this.magicLinkMail);
+    console.log(this.mail);
+    this.closeModalTab();
   }
 }
