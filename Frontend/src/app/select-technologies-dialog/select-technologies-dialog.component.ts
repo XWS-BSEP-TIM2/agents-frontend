@@ -15,11 +15,12 @@ export class SelectTechnologiesDialogComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.data.currentTechnologies);
     this.technologies = this.data.currentTechnologies
       .toString()
       .split(',')
       .map((e: string) => e.trim());
+
+    this.technologies = this.technologies.filter((e) => e != '');
   }
 
   save() {

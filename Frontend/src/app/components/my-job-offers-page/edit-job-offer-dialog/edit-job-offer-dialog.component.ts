@@ -1,6 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 import { JobOffer } from 'src/app/model/jobOffer';
+import { SelectTechnologiesDialogComponent } from 'src/app/select-technologies-dialog/select-technologies-dialog.component';
 import { BrowseService } from 'src/app/services/browse.service';
 import { JobOfferService } from 'src/app/services/job-offer.service';
 
@@ -15,6 +20,7 @@ export class EditJobOfferDialogComponent implements OnInit {
   publishToDislinkt: boolean = false;
 
   constructor(
+    public dialog: MatDialog,
     private browseService: BrowseService,
     private jobOfferService: JobOfferService,
     public dialogRef: MatDialogRef<EditJobOfferDialogComponent>,
@@ -37,6 +43,25 @@ export class EditJobOfferDialogComponent implements OnInit {
       this.offer.seniority.trim() != '' &&
       this.technologies.trim() != ''
     );
+  }
+
+  getTechnologyCount() {
+    if (this.technologies != '') {
+      return this.technologies.split(',').length;
+    } else {
+      return 0;
+    }
+  }
+
+  openTechnologiesDialog() {
+    const dialogRef = this.dialog.open(SelectTechnologiesDialogComponent, {
+      data: { currentTechnologies: this.technologies },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      this.technologies = result;
+    });
   }
 
   send() {

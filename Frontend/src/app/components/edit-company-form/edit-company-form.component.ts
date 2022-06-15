@@ -42,6 +42,14 @@ export class EditCompanyFormComponent implements OnInit {
     });
   }
 
+  getTechnologyCount() {
+    if (this.technologies != '') {
+      return this.technologies.split(',').length;
+    } else {
+      return 0;
+    }
+  }
+
   openTechnologiesDialog() {
     const dialogRef = this.dialog.open(SelectTechnologiesDialogComponent, {
       data: { currentTechnologies: this.technologies },
