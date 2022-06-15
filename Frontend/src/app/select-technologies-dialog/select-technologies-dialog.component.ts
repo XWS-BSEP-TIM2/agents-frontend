@@ -1,3 +1,4 @@
+import { ResolvedStaticSymbol } from '@angular/compiler';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -8,6 +9,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class SelectTechnologiesDialogComponent implements OnInit {
   technologies: string[] = [];
+  searchText: string = '';
 
   constructor(
     public dialogRef: MatDialogRef<SelectTechnologiesDialogComponent>,
@@ -27,6 +29,10 @@ export class SelectTechnologiesDialogComponent implements OnInit {
     this.dialogRef.close(this.technologies.toString());
   }
 
+  close() {
+    this.dialogRef.close(this.data.currentTechnologies.toString());
+  }
+
   toggleChip(chip: string) {
     if (this.isChipSelected(chip)) {
       this.technologies = this.technologies.filter((e) => e != chip);
@@ -37,6 +43,20 @@ export class SelectTechnologiesDialogComponent implements OnInit {
 
   isChipSelected(chip: string) {
     return Array.from(this.technologies).indexOf(chip) > -1;
+  }
+
+  isSearched(chip: string) {
+    let retVal: boolean = true;
+    if (this.searchText.trim() === '') {
+      retVal = true;
+    } else {
+      retVal = chip
+        .trim()
+        .toLowerCase()
+        .includes(this.searchText.toLowerCase());
+    }
+
+    return retVal;
   }
 
   programingLanguages: string[] = [
