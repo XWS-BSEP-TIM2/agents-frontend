@@ -1,7 +1,8 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ApplicationUser } from 'src/app/model/applicationUser';
 import { Company } from 'src/app/model/company';
+import { SelectTechnologiesDialogComponent } from 'src/app/select-technologies-dialog/select-technologies-dialog.component';
 import { BrowseService } from 'src/app/services/browse.service';
 import { CompanyService } from 'src/app/services/company.service';
 import { LoginService } from 'src/app/services/login.service';
@@ -23,7 +24,8 @@ export class EditCompanyFormComponent implements OnInit {
     private browseService: BrowseService,
     private companyService: CompanyService,
     private loginService: LoginService,
-    private userService: UserService
+    private userService: UserService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -40,14 +42,25 @@ export class EditCompanyFormComponent implements OnInit {
     });
   }
 
+  openTechnologiesDialog() {
+    const dialogRef = this.dialog.open(SelectTechnologiesDialogComponent, {
+      data: { currentTechnologies: this.technologies },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      this.technologies = result;
+    });
+  }
+
   validForm() {
     return (
       this.company.name.trim() != '' &&
       this.company.description.trim() != '' &&
       this.company.tagline.trim() != '' &&
-      this.technologies.trim() != '' &&
       this.emails.trim() != '' &&
-      this.phoneNumbers.trim() != ''
+      this.phoneNumbers.trim() != '' &&
+      this.technologies.trim() != ''
     );
   }
 

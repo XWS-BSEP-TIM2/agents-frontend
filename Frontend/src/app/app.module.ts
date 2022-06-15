@@ -36,6 +36,7 @@ import { BrowseSidebarComponent } from './components/dashboard/browse-sidebar/br
 import { BrowseHeaderComponent } from './components/dashboard/browse-header/browse-header.component';
 import { TwoFactorAuthComponent } from './components/two-factor-auth/two-factor-auth.component';
 import { MagicLinkLoginComponent } from './components/magic-link-login/magic-link-login.component';
+import { SelectTechnologiesDialogComponent } from './select-technologies-dialog/select-technologies-dialog.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { MagicLinkLoginComponent } from './components/magic-link-login/magic-lin
     BrowseHeaderComponent,
     TwoFactorAuthComponent,
     MagicLinkLoginComponent,
+    SelectTechnologiesDialogComponent,
   ],
   imports: [
     BrowserModule,

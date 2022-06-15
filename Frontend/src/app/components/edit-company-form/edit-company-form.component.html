@@ -19,10 +19,11 @@
     ></textarea>
   </mat-form-field>
 
-  <mat-form-field appearance="fill" color="accent">
-    <mat-label>Technologies (comma separated)</mat-label>
-    <input matInput [(ngModel)]="technologies" />
-  </mat-form-field>
+  <div class="is-flex is-flex-direction-row my-3 pb-3">
+    <button mat-raised-button color="accent" (click)="openTechnologiesDialog()">
+      Manage technologies ({{ this.technologies.split(",").length }} selected)
+    </button>
+  </div>
 
   <mat-form-field appearance="fill" color="accent">
     <mat-label>Email(s) (comma separated)</mat-label>
