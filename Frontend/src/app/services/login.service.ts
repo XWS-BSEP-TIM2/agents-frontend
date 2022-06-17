@@ -6,6 +6,7 @@ import { LoginResponse as LoginResponse } from '../model/loginResponse';
 import { server } from '../app-global';
 import { Verify2Factor } from '../model/verifyTwoFactor';
 import { PasswordlessLoginModel } from '../model/passwordlessModel';
+import { RecoveryRequest } from '../model/recoveryRequest';
 
 @Injectable({
   providedIn: 'root',
@@ -43,6 +44,18 @@ export class LoginService {
 
   login(loginR: LoginRequest) {
     return this._http.post<any>(this.url, loginR);
+  }
+
+  resendVerificationCode(email: string) {
+    return this._http.get<any>(this.url+'/resend-verify-code/'+email)
+  }
+
+  forggotPasswrod(email: string) {
+    return this._http.get<any>(this.url+'/recovery-password/'+email)
+  }
+
+  loginRecoverRequest(recoveryRequest: RecoveryRequest) {
+    return this._http.post<any>(this.url + '/recovery-password', recoveryRequest);
   }
 
   loginSetUser(loginResponse: LoginResponse) {
