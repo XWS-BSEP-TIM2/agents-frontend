@@ -1,0 +1,123 @@
+<div class="columns">
+  <div class="column">
+
+    <!-- edit password -->
+    <mat-card class="editSectionCss">
+      <div class="columns">
+        <div class="column is-10">
+          <mat-card-header>
+            <mat-card-title
+              >Change your <strong>password</strong></mat-card-title
+            >
+          </mat-card-header>
+        </div>
+        <div class="column is-2">
+          <button
+            style="margin-left: 5px"
+            *ngIf="!changePasswordFormVisible"
+            (click)="startChangePassword()"
+            class="button is-danger is-outlined"
+          >
+            change
+          </button>
+        </div>
+      </div>
+      <mat-card-content>
+        <div *ngIf="changePasswordFormVisible" class="mt-1 mb-5">
+          <hr />
+          <div class="columns">
+            <div class="column is-3"></div>
+            <div class="column is-6">
+              <div class="field">
+                <label class="label">Old Password</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    [(ngModel)]="changePasswordRequest.oldPassword"
+                    type="password"
+                    placeholder="Old password"
+                  />
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label">New Password</label>
+                <div class="control">
+                  <p class="control has-icons-right">
+                    <input
+                      class="input"
+                      [(ngModel)]="changePasswordRequest.newPassword"
+                      type="password"
+                      placeholder="New password"
+                    />
+                    <span class="icon is-small is-right">
+                      <mat-icon
+                        *ngIf="changePasswordRequest.passwordStrength()[1]"
+                        style="color: rgba(60, 255, 0, 0.812)"
+                        >check_circle_outline</mat-icon
+                      >
+                      <mat-icon
+                        *ngIf="!changePasswordRequest.passwordStrength()[1]"
+                        style="color: red"
+                        >cancel</mat-icon
+                      >
+                    </span>
+                  </p>
+                  <p
+                    [ngClass]="
+                      changePasswordRequest.passwordStrength()[1]
+                        ? 'has-text-success'
+                        : 'has-text-danger'
+                    "
+                  >
+                    {{ changePasswordRequest.passwordStrength()[0] }}
+                  </p>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label">Confirm Password</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    [(ngModel)]="changePasswordRequest.confirmNewPassword"
+                    type="password"
+                    placeholder="Confirm password"
+                    [class.is-danger]="!changePasswordRequest.passwordMatch()"
+                  />
+                  <p
+                    *ngIf="!changePasswordRequest.passwordMatch()"
+                    class="has-text-danger"
+                  >
+                    Password did not match
+                  </p>
+                </div>
+              </div>
+
+              <div class="is-flex is-justify-content-center mt-5">
+                <button
+                  (click)="cancelChangePassword()"
+                  class="button is-danger m-2"
+                >
+                  Cancel
+                </button>
+                <button
+                  (click)="changePassword()"
+                  class="button is-success m-2"
+                  [disabled]="
+                    changePasswordRequest.confirmNewPassword == '' ||
+                    changePasswordRequest.newPassword == '' ||
+                    changePasswordRequest.oldPassword == ''
+                  "
+                >
+                  Change
+                </button>
+              </div>
+            </div>
+            <div class="column is-3"></div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

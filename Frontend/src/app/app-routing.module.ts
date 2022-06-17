@@ -14,6 +14,7 @@ import { MyJobOffersPageComponent } from './components/my-job-offers-page/my-job
 import { SearchFeedComponent } from './components/search-feed/search-feed.component';
 import { TwoFactorAuthComponent } from './components/two-factor-auth/two-factor-auth.component';
 import { MagicLinkLoginComponent } from './components/magic-link-login/magic-link-login.component';
+import { EditProfilePageComponent } from './components/edit-profile-page/edit-profile-page.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,7 @@ const routes: Routes = [
         path: 'user/:id',
         component: ProfilePageComponent,
       },
+      { path: 'edit-profile', component: EditProfilePageComponent },
     ],
   },
   { path: 'login', component: LoginPageComponent, canActivate: [UnAuthGuard] },

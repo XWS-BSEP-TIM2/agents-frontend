@@ -37,6 +37,7 @@ import { BrowseHeaderComponent } from './components/dashboard/browse-header/brow
 import { TwoFactorAuthComponent } from './components/two-factor-auth/two-factor-auth.component';
 import { MagicLinkLoginComponent } from './components/magic-link-login/magic-link-login.component';
 import { SelectTechnologiesDialogComponent } from './select-technologies-dialog/select-technologies-dialog.component';
+import { EditProfilePageComponent } from './components/edit-profile-page/edit-profile-page.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { SelectTechnologiesDialogComponent } from './select-technologies-dialog/
     TwoFactorAuthComponent,
     MagicLinkLoginComponent,
     SelectTechnologiesDialogComponent,
+    EditProfilePageComponent,
   ],
   imports: [
     BrowserModule,

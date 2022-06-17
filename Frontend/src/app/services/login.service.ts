@@ -7,6 +7,7 @@ import { server } from '../app-global';
 import { Verify2Factor } from '../model/verifyTwoFactor';
 import { PasswordlessLoginModel } from '../model/passwordlessModel';
 import { RecoveryRequest } from '../model/recoveryRequest';
+import { ChangePasswordRequest } from '../model/changePasswordRequest';
 
 @Injectable({
   providedIn: 'root',
@@ -56,6 +57,11 @@ export class LoginService {
 
   loginRecoverRequest(recoveryRequest: RecoveryRequest) {
     return this._http.post<any>(this.url + '/recovery-password', recoveryRequest);
+  }
+
+  changePassword(changePasswordRequest: ChangePasswordRequest) {
+    const headers = this.getHeaders();
+    return this._http.post<any>(this.url + '/change-password', changePasswordRequest, { headers: headers })
   }
 
   loginSetUser(loginResponse: LoginResponse) {

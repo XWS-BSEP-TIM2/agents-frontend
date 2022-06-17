@@ -41,6 +41,14 @@
           <mat-icon>business_center</mat-icon>My Job Offers
         </div></mat-button-toggle
       >
+
+      <mat-button-toggle
+      value="edit-profile"
+      ><div class="label-container">
+        <mat-icon>settings</mat-icon>Settings
+      </div></mat-button-toggle>
+
+
       <mat-button-toggle value="admin" *ngIf="loginUser.role == 'ADMIN'"
         ><div class="label-container">
           <mat-icon>feedback</mat-icon>Admin Dashboard
